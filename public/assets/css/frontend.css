@@ -171,6 +171,10 @@ form {
   height: 10px;
   border-width: 0 4px 4px 0; }
 
+.container.mobile .inputGroup span {
+  padding: 8px;
+  margin-right: 0 !important; }
+
 .container .widgets {
   display: grid;
   grid-template-columns: 1fr 300px 300px 1fr 1fr;
@@ -602,13 +606,26 @@ modal {
         border-right: none;
         border-left: 1px solid rgba(255, 255, 255, 0.25); }
 
+.container.mobile alert .content {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 0; }
+  .container.mobile alert .content .icon {
+    display: none; }
+  .container.mobile alert .content .message {
+    padding: 0 15px; }
+  .container.mobile alert .content .buttons button {
+    font-size: 15px; }
+
 .container.mobile modal {
   grid-template-rows: 60px 1fr auto; }
   .container.mobile modal .head {
     grid-template-columns: 1fr 60px; }
     .container.mobile modal .head .title {
       font-size: 20px;
-      padding: 10px 15px; }
+      padding: 15px 15px; }
       .container.mobile modal .head .title small {
         font-size: 12px; }
     .container.mobile modal .head .close {
@@ -646,7 +663,7 @@ modal {
           .container.mobile modal .content .split_2_1 .right .history .date {
             margin-right: 15px; }
           .container.mobile modal .content .split_2_1 .right .history .remove {
-            padding: 0 15px; }
+            padding: 0 10px; }
   .container.mobile modal .footer {
     display: flex;
     flex-direction: row;
