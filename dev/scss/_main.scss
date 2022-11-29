@@ -149,3 +149,37 @@ select {
 form {
 	display: contents;
 }
+
+
+.container.mobile {
+	input, textarea, select {
+		width: 100%;
+		padding: 10px;
+		font-size: 12px;
+	}
+	.select2-container .select2-selection--single {
+		height: 37px;
+		width: 100%;
+		font-size: 14px;
+		padding: 5px 0;
+	}
+	.select2-container--default .select2-search--dropdown .select2-search__field {
+		height: 35px;
+		font-size: 16px;
+	}
+	.select2-results {
+		font-size: 16px;
+	}
+	.checkbox-checkmark {
+		left: 120px;
+		height: 37px;
+		width: 37px;
+	}
+	.checkbox-container .checkbox-checkmark:after {
+		left: 10px;
+		top: 10px;
+		width: 15px;
+		height: 10px;
+		border-width: 0 4px 4px 0;
+	}
+}

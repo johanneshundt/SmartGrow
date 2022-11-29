@@ -200,4 +200,85 @@ modal {
 	}
 }
 
+.container.mobile {
+	modal {
+		grid-template-rows: 60px 1fr auto;
+		.head {
+			grid-template-columns: 1fr 60px;
+			.title {
+				font-size: 20px;
+				padding: 10px 15px;
+				small {
+					font-size: 12px;
+				}
+			}
+			.close {
+				font-size: 30px;
+			}
+		}
+		.content {
+			overflow: auto;
+			margin: 0 0 10px 0;
+			.split_2_2 {
+				height: unset;
+				display: block;
+				.video {
+					margin: 0 0 10px 0;
+				}
+			}
+			.split_2_1 {
+				display: block;
+				.text,.strain,.feminized,.shape,.volume {
+					padding: 5px;
+				}
+				label {
+					font-size: 16px;
+					width: 120px;
+				}
+				.info {
+					h2 {
+						font-size: 22px;
+					}
+					padding: 5px;
+					table {
+						font-size: 12px;
+					}
+				}
+				.right {
+					h2 {
+						font-size: 22px;
+					}
+					padding: 5px;
+					.history {
+						margin: 5px 0;
+						font-size: 14px;
+						i {
+							padding: 0 10px;
+						}
+						.date {
+							margin-right: 15px;
+						}
+						.remove {
+							padding: 0 15px;
+						}
+					}
+				}
+			}
+		}
+		.footer {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: right;
+			button {
+				height: unset;
+				width: 33.33%;
+				border: none;
+				border-left: 1px solid rgba(255,255,255,0.25);
+				border-bottom: 1px solid rgba(255,255,255,0.25);
+				float: unset;
+			}
+		}
+	}
+}
 

@@ -25,16 +25,11 @@ class SmartGrow {
 		}
 	}
 	resizeLayout(){
-		console.log(this)
 		if(this.isMobile){
-			console.log('mobile')
 			let widgetWidth = $('.layout_widget').outerWidth()
 			let plantWidth = ((widgetWidth-40)/3)-2
-			console.log(widgetWidth,plantWidth)
 			$('.layout_widget .plant').css({'width':plantWidth+'px',height:plantWidth+'px'})
 			$('.layout_widget').css({height:(plantWidth*3)+40+'px'})
-
-
 		}
 	}
 	eventHandler(){
@@ -42,11 +37,13 @@ class SmartGrow {
 		$(document).on('click','li.plant',async function (){
 			await plugin.loadPlant($(this).data('plant'))
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 		}).on('click','modal button.pot',async function (){
 			plugin.reopen = $('form#plantForm').data('plant')
 			await plugin.loadPot($(this).data('pot'))
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 		}).on('click','modal button.cut',async function (){
 			plugin.loadAlert('cut');
@@ -65,23 +62,28 @@ class SmartGrow {
 		}).on('click','button.camera',async function(){
 			await plugin.loadCamera();
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 		}).on('click','button.schedule',async function(){
 			await plugin.loadSchedule();
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 		}).on('click','button.settings',async function(){
 			await plugin.loadSettings();
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 		}).on('click','modal .close',async function (){
 			if(plugin.reopen){
 				await plugin.loadPlant(plugin.reopen)
 				plugin.initSelect2();
+				$('.container.mobile').css({overflow:'hidden'});
 				$('modal').removeClass('hidden');
 				plugin.reopen = false;
 			}
 			else {
+				$('.container.mobile').css({overflow:'unset'});
 				$('modal').html('').addClass('hidden')
 			}
 		}).on('click','alert button.ok, alert button.close',function (){
@@ -89,12 +91,14 @@ class SmartGrow {
 		}).on('submit','form#plantForm',function (e){
 			e.preventDefault();
 			$.post('set/plant/'+$(this).data('plant'),$(this).serializeArray())
+			$('.container.mobile').css({overflow:'unset'});
 			$('modal').addClass('hidden')
 		}).on('submit','form#historyCut',async function (e){
 			e.preventDefault();
 			await $.post('set/plant/'+$('form#plantForm').data('plant')+'/history/cut',$(this).serializeArray())
 			await plugin.loadPlant($('form#plantForm').data('plant'))
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 			$('alert').addClass('hidden')
 		}).on('submit','form#historyNote',async function (e){
@@ -102,6 +106,7 @@ class SmartGrow {
 			await $.post('set/plant/'+$('form#plantForm').data('plant')+'/history/note',$(this).serializeArray())
 			await plugin.loadPlant($('form#plantForm').data('plant'))
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 			$('alert').addClass('hidden')
 		}).on('submit','form#historyMeasure',async function (e){
@@ -109,12 +114,14 @@ class SmartGrow {
 			await $.post('set/plant/'+$('form#plantForm').data('plant')+'/history/measure',$(this).serializeArray())
 			await plugin.loadPlant($('form#plantForm').data('plant'))
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 			$('alert').addClass('hidden')
 		}).on('click','.history .remove',async function (){
 			await $.post('set/plant/'+$('form#plantForm').data('plant')+'/history/remove/'+$(this).data('id'),$(this).serializeArray())
 			await plugin.loadPlant($('form#plantForm').data('plant'))
 			plugin.initSelect2();
+			$('.container.mobile').css({overflow:'hidden'});
 			$('modal').removeClass('hidden');
 		})
 	}

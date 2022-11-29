@@ -141,6 +141,36 @@ select {
 form {
   display: contents; }
 
+.container.mobile input, .container.mobile textarea, .container.mobile select {
+  width: 100%;
+  padding: 10px;
+  font-size: 12px; }
+
+.container.mobile .select2-container .select2-selection--single {
+  height: 37px;
+  width: 100%;
+  font-size: 14px;
+  padding: 5px 0; }
+
+.container.mobile .select2-container--default .select2-search--dropdown .select2-search__field {
+  height: 35px;
+  font-size: 16px; }
+
+.container.mobile .select2-results {
+  font-size: 16px; }
+
+.container.mobile .checkbox-checkmark {
+  left: 120px;
+  height: 37px;
+  width: 37px; }
+
+.container.mobile .checkbox-container .checkbox-checkmark:after {
+  left: 10px;
+  top: 10px;
+  width: 15px;
+  height: 10px;
+  border-width: 0 4px 4px 0; }
+
 .container .widgets {
   display: grid;
   grid-template-columns: 1fr 300px 300px 1fr 1fr;
@@ -571,6 +601,64 @@ modal {
         float: right;
         border-right: none;
         border-left: 1px solid rgba(255, 255, 255, 0.25); }
+
+.container.mobile modal {
+  grid-template-rows: 60px 1fr auto; }
+  .container.mobile modal .head {
+    grid-template-columns: 1fr 60px; }
+    .container.mobile modal .head .title {
+      font-size: 20px;
+      padding: 10px 15px; }
+      .container.mobile modal .head .title small {
+        font-size: 12px; }
+    .container.mobile modal .head .close {
+      font-size: 30px; }
+  .container.mobile modal .content {
+    overflow: auto;
+    margin: 0 0 10px 0; }
+    .container.mobile modal .content .split_2_2 {
+      height: unset;
+      display: block; }
+      .container.mobile modal .content .split_2_2 .video {
+        margin: 0 0 10px 0; }
+    .container.mobile modal .content .split_2_1 {
+      display: block; }
+      .container.mobile modal .content .split_2_1 .text, .container.mobile modal .content .split_2_1 .strain, .container.mobile modal .content .split_2_1 .feminized, .container.mobile modal .content .split_2_1 .shape, .container.mobile modal .content .split_2_1 .volume {
+        padding: 5px; }
+      .container.mobile modal .content .split_2_1 label {
+        font-size: 16px;
+        width: 120px; }
+      .container.mobile modal .content .split_2_1 .info {
+        padding: 5px; }
+        .container.mobile modal .content .split_2_1 .info h2 {
+          font-size: 22px; }
+        .container.mobile modal .content .split_2_1 .info table {
+          font-size: 12px; }
+      .container.mobile modal .content .split_2_1 .right {
+        padding: 5px; }
+        .container.mobile modal .content .split_2_1 .right h2 {
+          font-size: 22px; }
+        .container.mobile modal .content .split_2_1 .right .history {
+          margin: 5px 0;
+          font-size: 14px; }
+          .container.mobile modal .content .split_2_1 .right .history i {
+            padding: 0 10px; }
+          .container.mobile modal .content .split_2_1 .right .history .date {
+            margin-right: 15px; }
+          .container.mobile modal .content .split_2_1 .right .history .remove {
+            padding: 0 15px; }
+  .container.mobile modal .footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right; }
+    .container.mobile modal .footer button {
+      height: unset;
+      width: 33.33%;
+      border: none;
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      float: unset; }
 
 alert {
   background: rgba(0, 0, 0, 0.5);

@@ -44,6 +44,7 @@ form#plantForm(data-plant=plant._id method='post')
                             td Plagron Growmix
                             td 14 Liter
             .right
+                h2 Verlauf
                 -
                     plant.history.sort(function(a,b){
                         return new Date(b.date) - new Date(a.date);
