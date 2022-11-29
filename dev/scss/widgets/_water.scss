@@ -1,0 +1,21 @@
+.water_widget {
+	grid-area: water_widget;
+	.amount {
+		font-size: 35px;
+	}
+	.amount_per_plant {
+		font-size: 20px;
+	}
+	.duration {
+		font-size: 20px;
+	}
+	.next {
+		font-size: 20px;
+	}
+	.interval {
+		font-size: 20px;
+	}
+	.countdown {
+		font-size: 30px;
+	}
+}

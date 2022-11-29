@@ -1,0 +1,148 @@
+.hidden {
+	display: none;
+}
+
+.good {
+	color: #7ffe00;
+}
+.high {
+	color: #ff0000;
+}
+.low {
+	color: #00ffff;
+}
+
+body {
+	font-family: 'Orbitron', sans-serif;
+	background-image: url("/assets/media/background/bg.jpg");
+}
+.container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 20px;
+}
+//CHECKBOX
+.checkbox-container {
+	display: block;
+	position: relative;
+	padding-left: 0px;
+	cursor: pointer;
+	font-size: 30px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.checkbox-container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+.checkbox-checkmark {
+	position: absolute;
+	top: -7px;
+	left: 300px;
+	height: 50px;
+	width: 50px;
+	background-color: transparent;
+	border: 1px solid rgba(255,255,255,0.75);
+}
+.checkbox-container:hover input ~ .checkbox-checkmark {
+	background-color: transparent;
+}
+.checkbox-container input:checked ~ .checkbox-checkmark {
+	background-color: transparent;
+}
+.checkbox-checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+.checkbox-container input:checked ~ .checkbox-checkmark:after {
+	display: block;
+}
+.checkbox-container .checkbox-checkmark:after {
+	left: 10px;
+	top: 10px;
+	width: 20px;
+	height: 15px;
+	border: solid white;
+	border-width: 0 6px 6px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+//SELECT2
+.select2-container {
+	flex-grow: 1;
+}
+.select2-container .select2-selection--single {
+	height: 60px;
+	font-size: 20px;
+	padding: 15px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.75);
+	border-radius: 0;
+}
+.select2-dropdown {
+	background: rgba(255,255,255,0.75);
+	backdrop-filter: blur(5px);
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	background: rgba(255,255,255,0.75);
+	height: 50px;
+	font-size: 20px;
+}
+.select2-results {
+	font-size: 20px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	color: #fff;
+}
+.select2-container--open .select2-dropdown--below {
+	background: rgba(255,255,255,0.25);
+}
+
+.off .if-on {
+	display: none;
+}
+.on .if-off {
+	display: none;
+}
+
+input, textarea, select {
+	color: #fff;
+	flex-grow: 1;
+	padding: 15px;
+	font-size: 20px;
+	font-family: 'Orbitron';
+	background-color: transparent;
+	border: 1px solid rgba(255,255,255,0.75);
+	box-sizing: border-box;
+}
+select {
+	color: #898989;
+}
+.inputGroup {
+	display: flex;
+	width: 100%;
+	input,select {
+		flex-grow: 1 !important;
+		margin: 0 !important;
+	}
+	span {
+		border: 1px solid rgba(255,255,255,0.75);
+		box-sizing: border-box;
+		border-left: none;
+		padding: 15px;
+	}
+}
+
+form {
+	display: contents;
+}

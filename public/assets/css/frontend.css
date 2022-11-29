@@ -1,0 +1,602 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+.hidden {
+  display: none; }
+
+.good {
+  color: #7ffe00; }
+
+.high {
+  color: #ff0000; }
+
+.low {
+  color: #00ffff; }
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-image: url("/assets/media/background/bg.jpg"); }
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px; }
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 0px;
+  cursor: pointer;
+  font-size: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0; }
+
+.checkbox-checkmark {
+  position: absolute;
+  top: -7px;
+  left: 300px;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.75); }
+
+.checkbox-container:hover input ~ .checkbox-checkmark {
+  background-color: transparent; }
+
+.checkbox-container input:checked ~ .checkbox-checkmark {
+  background-color: transparent; }
+
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none; }
+
+.checkbox-container input:checked ~ .checkbox-checkmark:after {
+  display: block; }
+
+.checkbox-container .checkbox-checkmark:after {
+  left: 10px;
+  top: 10px;
+  width: 20px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 6px 6px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+.select2-container {
+  flex-grow: 1; }
+
+.select2-container .select2-selection--single {
+  height: 60px;
+  font-size: 20px;
+  padding: 15px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 0; }
+
+.select2-dropdown {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(5px); }
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  background: rgba(255, 255, 255, 0.75);
+  height: 50px;
+  font-size: 20px; }
+
+.select2-results {
+  font-size: 20px; }
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #fff; }
+
+.select2-container--open .select2-dropdown--below {
+  background: rgba(255, 255, 255, 0.25); }
+
+.off .if-on {
+  display: none; }
+
+.on .if-off {
+  display: none; }
+
+input, textarea, select {
+  color: #fff;
+  flex-grow: 1;
+  padding: 15px;
+  font-size: 20px;
+  font-family: 'Orbitron';
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-sizing: border-box; }
+
+select {
+  color: #898989; }
+
+.inputGroup {
+  display: flex;
+  width: 100%; }
+  .inputGroup input, .inputGroup select {
+    flex-grow: 1 !important;
+    margin: 0 !important; }
+  .inputGroup span {
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-sizing: border-box;
+    border-left: none;
+    padding: 15px; }
+
+form {
+  display: contents; }
+
+.container .widgets {
+  display: grid;
+  grid-template-columns: 1fr 300px 300px 1fr 1fr;
+  grid-template-rows: 300px 300px 1fr auto;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  justify-content: center;
+  align-content: center;
+  grid-template-areas: "temperature_widget layout_widget layout_widget light_widget time_widget" "humidity_widget layout_widget layout_widget water_widget fertilizer_widget" "stadium_widget parameters_widget parameters_widget parameters_widget schedule_widget" "buttons_widget buttons_widget buttons_widget buttons_widget buttons_widget"; }
+  .container .widgets .widget {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff; }
+    .container .widgets .widget.empty > * {
+      display: none; }
+      .container .widgets .widget.empty > *.empty {
+        display: block; }
+    .container .widgets .widget .empty {
+      display: none; }
+    .container .widgets .widget label {
+      font-weight: 600; }
+    .container .widgets .widget i.icon {
+      font-size: 50px;
+      position: absolute;
+      right: 20px;
+      top: 20px; }
+    .container .widgets .widget .countdown:before {
+      font-family: "Font Awesome 6 Pro";
+      content: "\f2f2";
+      font-size: 75%;
+      padding-right: 10px;
+      font-weight: 100; }
+  .container .widgets .buttons_widget {
+    grid-area: buttons_widget;
+    align-self: self-end;
+    padding: 0; }
+    .container .widgets .buttons_widget button {
+      cursor: pointer;
+      color: #fff;
+      font-family: 'Orbitron';
+      font-size: 12px;
+      display: inline-grid;
+      background: rgba(0, 0, 0, 0.25);
+      border: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.5);
+      width: 130px;
+      height: 80px; }
+      .container .widgets .buttons_widget button i {
+        color: #fff;
+        font-size: 40px;
+        padding: 10px 0 6px 0; }
+      .container .widgets .buttons_widget button:first-child {
+        border-radius: 10px 0 0 10px; }
+      .container .widgets .buttons_widget button.on {
+        border-bottom: 3px solid #7aff00; }
+      .container .widgets .buttons_widget button.off {
+        border-bottom: 3px solid red; }
+      .container .widgets .buttons_widget button:hover {
+        background: transparent; }
+      .container .widgets .buttons_widget button.settings, .container .widgets .buttons_widget button.schedule, .container .widgets .buttons_widget button.camera {
+        border: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        float: right; }
+  .container .widgets .fertilizer_widget {
+    grid-area: fertilizer_widget; }
+    .container .widgets .fertilizer_widget .type {
+      font-size: 25px;
+      line-height: 50px; }
+    .container .widgets .fertilizer_widget .amount {
+      font-size: 20px; }
+    .container .widgets .fertilizer_widget .interval {
+      font-size: 20px; }
+    .container .widgets .fertilizer_widget .next {
+      font-size: 20px; }
+    .container .widgets .fertilizer_widget .countdown {
+      font-size: 30px; }
+  .container .widgets .humidity_widget {
+    grid-area: humidity_widget; }
+    .container .widgets .humidity_widget .value {
+      font-size: 60px;
+      font-weight: 600; }
+    .container .widgets .humidity_widget #humidityChart {
+      width: 100%; }
+    .container .widgets .humidity_widget .min {
+      font-size: 30px; }
+      .container .widgets .humidity_widget .min:after {
+        font-size: 20px;
+        content: " min"; }
+    .container .widgets .humidity_widget .max {
+      font-size: 30px; }
+      .container .widgets .humidity_widget .max:after {
+        font-size: 20px;
+        content: " max"; }
+  .container .widgets .layout_widget {
+    /*display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 10px 10px;
+	grid-auto-flow: row;
+	grid-template-areas:
+    ". . ."
+    ". . ."
+    ". . .";*/
+    grid-area: layout_widget; }
+    .container .widgets .layout_widget .sortable {
+      list-style-type: none;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0px 0 0 20px; }
+      .container .widgets .layout_widget .sortable li.plant {
+        margin: 20px 20px 0px 0;
+        float: left;
+        width: 176px;
+        height: 176px;
+        box-sizing: border-box;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center; }
+        .container .widgets .layout_widget .sortable li.plant .name {
+          font-weight: 800;
+          font-size: 20px; }
+        .container .widgets .layout_widget .sortable li.plant .breeder {
+          font-size: 12px; }
+        .container .widgets .layout_widget .sortable li.plant .feminized {
+          font-size: 12px; }
+        .container .widgets .layout_widget .sortable li.plant:hover {
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          background: rgba(0, 0, 0, 0.5); }
+  .container .widgets .light_widget {
+    grid-area: light_widget; }
+    .container .widgets .light_widget .amount {
+      font-size: 35px; }
+    .container .widgets .light_widget .time {
+      font-size: 40px; }
+    .container .widgets .light_widget .countdown {
+      font-size: 30px; }
+    .container .widgets .light_widget .type {
+      font-size: 20px; }
+    .container .widgets .light_widget table {
+      width: 100%; }
+  .container .widgets .parameters_widget {
+    grid-area: parameters_widget; }
+    .container .widgets .parameters_widget table {
+      width: 100%;
+      border-collapse: collapse; }
+      .container .widgets .parameters_widget table th {
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+      .container .widgets .parameters_widget table td {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+  .container .widgets .schedule_widget {
+    grid-area: schedule_widget;
+    font-size: 15px; }
+    .container .widgets .schedule_widget table {
+      width: 100%; }
+      .container .widgets .schedule_widget table tbody {
+        display: flex;
+        flex-direction: column-reverse; }
+      .container .widgets .schedule_widget table tr {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+      .container .widgets .schedule_widget table tr.active {
+        color: #4c4c4c;
+        background: rgba(255, 255, 255, 0.5); }
+      .container .widgets .schedule_widget table th {
+        text-align: left; }
+      .container .widgets .schedule_widget table td {
+        text-align: right; }
+  .container .widgets .stadium_widget {
+    grid-area: stadium_widget; }
+    .container .widgets .stadium_widget .name {
+      font-size: 30px; }
+    .container .widgets .stadium_widget .date {
+      font-size: 20px; }
+    .container .widgets .stadium_widget .countdown {
+      font-size: 20px; }
+    .container .widgets .stadium_widget .percentage {
+      font-size: 20px; }
+  .container .widgets .temperature_widget {
+    grid-area: temperature_widget; }
+    .container .widgets .temperature_widget .value {
+      font-size: 60px;
+      font-weight: 600; }
+    .container .widgets .temperature_widget #temperatureChart {
+      width: 100%; }
+    .container .widgets .temperature_widget .min {
+      font-size: 30px; }
+      .container .widgets .temperature_widget .min:after {
+        font-size: 20px;
+        content: " min"; }
+    .container .widgets .temperature_widget .max {
+      font-size: 30px; }
+      .container .widgets .temperature_widget .max:after {
+        font-size: 20px;
+        content: " max"; }
+  .container .widgets .time_widget {
+    grid-area: time_widget; }
+    .container .widgets .time_widget .time {
+      font-weight: 600;
+      font-size: 60px; }
+    .container .widgets .time_widget .date {
+      font-size: 20px; }
+    .container .widgets .time_widget .calendar_week {
+      font-size: 30px; }
+  .container .widgets .water_widget {
+    grid-area: water_widget; }
+    .container .widgets .water_widget .amount {
+      font-size: 35px; }
+    .container .widgets .water_widget .amount_per_plant {
+      font-size: 20px; }
+    .container .widgets .water_widget .duration {
+      font-size: 20px; }
+    .container .widgets .water_widget .next {
+      font-size: 20px; }
+    .container .widgets .water_widget .interval {
+      font-size: 20px; }
+    .container .widgets .water_widget .countdown {
+      font-size: 30px; }
+
+modal {
+  color: #fff;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr auto;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: row;
+  justify-content: center;
+  align-content: center;
+  grid-template-areas: "head" "content" "footer"; }
+  modal .head {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    grid-template-rows: 1fr;
+    grid-auto-flow: row;
+    grid-template-areas: "title close";
+    grid-area: head; }
+    modal .head .title {
+      grid-area: title;
+      font-size: 50px;
+      font-weight: 600;
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+      modal .head .title small {
+        padding-left: 20px;
+        font-size: 25px; }
+    modal .head .close {
+      grid-area: close;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      cursor: pointer; }
+  modal .content {
+    overflow: hidden;
+    grid-area: content;
+    padding: 10px; }
+    modal .content .split_2_2 {
+      grid-gap: 10px;
+      height: 100%;
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 50% 50%;
+      grid-template-areas: ". ." ". .";
+      justify-content: center;
+      align-content: center; }
+    modal .content .video {
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.1);
+      box-sizing: border-box;
+      padding: 20px;
+      text-align: center;
+      height: 100%; }
+      modal .content .video label {
+        position: absolute; }
+      modal .content .video img {
+        max-width: 100%;
+        max-height: 100%; }
+    modal .content .split_2_1 {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-auto-flow: row;
+      justify-content: center;
+      align-content: center;
+      grid-template-areas: ". ."; }
+      modal .content .split_2_1 .left {
+        overflow-y: auto; }
+        modal .content .split_2_1 .left .text, modal .content .split_2_1 .left .strain, modal .content .split_2_1 .left .shape, modal .content .split_2_1 .left .volume {
+          display: flex;
+          height: 50px;
+          align-items: center;
+          padding: 20px; }
+          modal .content .split_2_1 .left .text label, modal .content .split_2_1 .left .strain label, modal .content .split_2_1 .left .shape label, modal .content .split_2_1 .left .volume label {
+            flex-shrink: 0;
+            font-size: 30px;
+            width: 300px; }
+        modal .content .split_2_1 .left .strain {
+          height: 60px; }
+        modal .content .split_2_1 .left .feminized {
+          display: flex;
+          height: 60px;
+          align-items: center;
+          padding: 20px; }
+        modal .content .split_2_1 .left .info {
+          padding: 20px;
+          font-size: 20px; }
+          modal .content .split_2_1 .left .info table {
+            width: 100%;
+            border-collapse: collapse; }
+            modal .content .split_2_1 .left .info table th {
+              text-align: left; }
+            modal .content .split_2_1 .left .info table th, modal .content .split_2_1 .left .info table td {
+              vertical-align: top;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+      modal .content .split_2_1 .right {
+        overflow-y: auto;
+        padding-top: 7px; }
+        modal .content .split_2_1 .right .history {
+          display: flex;
+          font-size: 20px;
+          background-color: rgba(255, 255, 255, 0.25);
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          margin: 10px; }
+          modal .content .split_2_1 .right .history i {
+            line-height: 50px;
+            padding: 0 20px;
+            font-size: 20px; }
+          modal .content .split_2_1 .right .history .date {
+            line-height: 50px;
+            margin-right: 30px; }
+          modal .content .split_2_1 .right .history .text {
+            flex-grow: 1;
+            padding: 12px 0; }
+          modal .content .split_2_1 .right .history .remove {
+            cursor: pointer;
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            padding: 0 20px; }
+            modal .content .split_2_1 .right .history .remove i {
+              padding: 0; }
+  modal .footer {
+    grid-area: footer;
+    border-top: 1px solid rgba(255, 255, 255, 0.25); }
+    modal .footer button {
+      cursor: pointer;
+      color: #fff;
+      border: none;
+      font-size: 30px;
+      padding: 20px;
+      background-color: transparent;
+      font-family: 'Orbitron', sans-serif; }
+      modal .footer button.pot, modal .footer button.note, modal .footer button.measure, modal .footer button.cut, modal .footer button.save, modal .footer button.close {
+        float: left;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        font-size: 12px;
+        height: 100%;
+        padding: 10px 50px;
+        border-right: 1px solid rgba(255, 255, 255, 0.25); }
+        modal .footer button.pot i, modal .footer button.note i, modal .footer button.measure i, modal .footer button.cut i, modal .footer button.save i, modal .footer button.close i {
+          font-size: 40px; }
+      modal .footer button.save, modal .footer button.close {
+        float: right;
+        border-right: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.25); }
+
+alert {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50; }
+  alert .content {
+    color: #fff;
+    z-index: 100;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    height: 50%;
+    top: 25%;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "icon message image" "buttons buttons buttons";
+    justify-content: center;
+    align-content: center; }
+    alert .content .icon {
+      grid-area: icon;
+      display: flex;
+      align-items: center; }
+      alert .content .icon i {
+        font-size: 60px;
+        padding: 60px; }
+    alert .content .message {
+      grid-area: message;
+      display: flex;
+      flex-direction: column; }
+      alert .content .message input, alert .content .message textarea {
+        margin-right: 50px;
+        flex-grow: 0; }
+      alert .content .message .inputGroup span {
+        margin-right: 50px; }
+    alert .content .image {
+      grid-area: image; }
+      alert .content .image img {
+        height: 200px;
+        margin: 20px;
+        border-radius: 50px; }
+    alert .content .buttons {
+      display: flex;
+      grid-area: buttons;
+      border-top: 1px solid rgba(255, 255, 255, 0.75); }
+      alert .content .buttons button {
+        border: none;
+        width: 100%;
+        cursor: pointer;
+        color: #fff;
+        float: right;
+        font-size: 30px;
+        padding: 20px;
+        background-color: transparent;
+        font-family: 'Orbitron', sans-serif; }
+        alert .content .buttons button:not(:first-child) {
+          border-left: 1px solid rgba(255, 255, 255, 0.5); }
+
+/*# sourceMappingURL=frontend.css.map */

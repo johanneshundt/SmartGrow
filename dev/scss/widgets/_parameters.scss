@@ -1,0 +1,14 @@
+.parameters_widget {
+	grid-area: parameters_widget;
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		th {
+			text-align: left;
+			border-bottom: 1px solid rgba(255,255,255,0.25);
+		}
+		td {
+			border-bottom: 1px solid rgba(255,255,255,0.25);
+		}
+	}
+}

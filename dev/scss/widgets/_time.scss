@@ -1,0 +1,13 @@
+.time_widget {
+	grid-area: time_widget;
+	.time {
+		font-weight: 600;
+		font-size: 60px;
+	}
+	.date {
+		font-size: 20px;
+	}
+	.calendar_week {
+		font-size: 30px;
+	}
+}

@@ -1,0 +1,19 @@
+.light_widget {
+	grid-area: light_widget;
+	.amount {
+		font-size: 35px;
+		//padding-bottom: 15px;
+	}
+	.time {
+		font-size: 40px;
+	}
+	.countdown {
+		font-size: 30px;
+	}
+	.type {
+		font-size: 20px;
+	}
+	table {
+		width: 100%;
+	}
+}

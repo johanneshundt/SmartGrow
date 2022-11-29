@@ -1,0 +1,26 @@
+.schedule_widget {
+	grid-area: schedule_widget;
+	font-size: 15px;
+	table {
+		width: 100%;
+		tbody {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+		tr {
+			display: flex;
+			justify-content: space-between;
+			border-bottom: 1px solid rgba(255,255,255,0.25);
+		}
+		tr.active {
+			color: #4c4c4c;
+			background: rgba(255,255,255,0.5);
+		}
+		th {
+			text-align: left;
+		}
+		td {
+			text-align: right;
+		}
+	}
+}

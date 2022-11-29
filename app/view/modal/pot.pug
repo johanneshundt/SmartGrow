@@ -1,0 +1,34 @@
+.head
+    .title='Topf '+pot.shape
+        if(pot.shape === 'Rechteckig')
+            small=pot.size.width.amount+' '+pot.size.width.unit+' x '+pot.size.width.amount+' '+pot.size.width.unit+' x '+pot.size.height.amount+' '+pot.size.height.unit+' ('+pot.volume.amount+' '+pot.volume.unit+')'
+        else
+            small='Ø ' + pot.size.diameter.amount + ' ' + pot.size.diameter.unit + ' x ' + pot.size.height.amount + ' ' + pot.size.height.unit + ' (' + pot.volume.amount + ' ' + pot.volume.unit + ')'
+    .close
+        i.fa-duotone.fa-times
+.content
+    .split_2_1
+        .left
+            .shape
+                label Form
+                select.select2(name="shape")
+                    option(value="Rechteckig") Rechteckig
+                    option(value="Rund") Rund
+            .volume
+                label Volumen
+                .inputGroup
+                    input(name='volume.amount' type='number' value=pot.volume.amount)
+                    select(name='volume.amount')
+                        option(selected=pot.volume.unit==='Liter') Liter
+                        option(selected=pot.volume.unit==='ml') ml
+                        option(selected=pot.volume.unit==='m³') m³
+                        option(selected=pot.volume.unit==='cm³') cm³
+                        option(selected=pot.volume.unit==='dm³') dm³
+
+
+
+.footer
+    button.save(type="submit") Speichern
+        i.fa-duotone.fa-floppy-disk
+    button.close(type="button") Abbrechen
+        i.fa-duotone.fa-times

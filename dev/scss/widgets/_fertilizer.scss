@@ -1,0 +1,19 @@
+.fertilizer_widget {
+	grid-area: fertilizer_widget;
+	.type {
+		font-size: 25px;
+		line-height: 50px;
+	}
+	.amount {
+		font-size: 20px;
+	}
+	.interval {
+		font-size: 20px;
+	}
+	.next {
+		font-size: 20px;
+	}
+	.countdown {
+		font-size: 30px;
+	}
+}

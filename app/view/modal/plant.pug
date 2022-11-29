@@ -1,0 +1,71 @@
+form#plantForm(data-plant=plant._id method='post')
+    .head
+        .title=plant.strain.name
+            small=plant.text
+        .close
+            i.fa-duotone.fa-times
+    .content
+        .split_2_1
+            .left
+                .text
+                    label Text
+                    input(type="text" value=plant.text name="text")
+                .strain
+                    label Strain
+                    select.select2(name="strain")
+                        each strain in strains
+                            option(value=strain._id selected=(strain._id.toString() === plant.strain._id.toString()))=strain.name + ' | ' + strain.breeder
+                .feminized
+                    label.checkbox-container Feminisiert
+                        input(type='checkbox' checked=plant.feminized name="feminized" value="true")
+                        span.checkbox-checkmark
+                .info
+                    h2 Info
+                    table
+                        tr
+                            th Topf
+                            td 28cm x 28cm x 29cm
+                            td 14 Liter
+                        tr
+                            th Bewässerung
+                            td
+                                | Gardena Micro-Drip
+                                br
+                                | 6L/Stunde
+                            td
+                                | Reihentropfer (2L/h)
+                                br
+                                | Reihentropfer (2L/h)
+                                br
+                                | Reihentropfer (2L/h)
+
+                        tr
+                            th Medium
+                            td Plagron Growmix
+                            td 14 Liter
+            .right
+                -
+                    plant.history.sort(function(a,b){
+                        return new Date(b.date) - new Date(a.date);
+                    })
+                each history in plant.history
+                    .history
+                        i.fa-duotone(class=history.icon)
+                        .date=new Date(history.date).toLocaleDateString('fr-CH')
+                        .text!=history.value
+                        .remove(data-id=history._id)
+                            i.fa-duotone.fa-times
+    .footer
+        if(stadium.pot)
+            button.pot(type="button" data-pot=stadium.pot._id) Topf
+                i.fa-duotone.fa-honey-pot
+        button.cut(type="button") Beschneiden
+            i.fa-duotone.fa-scissors
+        button.measure(type="button") Messen
+            i.fa-duotone.fa-ruler
+        button.note(type="button") Anmerkung
+            i.fa-duotone.fa-notes
+        button.save(type="submit") Speichern
+            i.fa-duotone.fa-floppy-disk
+        button.close(type="button") Abbrechen
+            i.fa-duotone.fa-times
