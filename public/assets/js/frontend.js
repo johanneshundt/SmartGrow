@@ -474,6 +474,17 @@ class SmartGrow {
 	}
 	initSelect2(){
 		$('.select2').select2();
+		$('.select2ajax').select2({
+			ajax: {
+				url: '/api/search/strain',
+				data: function (params) {
+					let query = {
+						search: params.term
+					}
+					return query;
+				}
+			}
+		})
 	}
 
 	async loadPlant(plant){

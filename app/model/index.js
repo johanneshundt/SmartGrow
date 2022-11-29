@@ -1,4 +1,5 @@
 exports.admin = require('./admin')
+exports.breeder = require('./breeder')
 exports.fertilizer = require('./fertilizer')
 exports.layout = require('./layout')
 exports.light = require('./light')

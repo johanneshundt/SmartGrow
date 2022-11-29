@@ -53,7 +53,11 @@ module.exports.getSettings = async function(name){
 				model:'Plant',
 				populate:{
 					path:'strain',
-					model:'Strain'
+					model:'Strain',
+					populate:{
+						path:'breeder',
+						model:'Breeder'
+					}
 				}
 			}
 		})

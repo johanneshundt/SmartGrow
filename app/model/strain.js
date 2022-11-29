@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 let StrainSchema = new Schema({
 	name:String,
 	breeder:String,
+	strainID:String,
 	sort:String,
 	location: {
 		indoor:Boolean,
@@ -11,6 +12,7 @@ let StrainSchema = new Schema({
 	},
 	flowering_time:Number,
 	seed_types: {
+		auto: Boolean,
 		feminized: Boolean,
 		normal: Boolean
 	},

@@ -65,6 +65,11 @@
 		box-sizing: border-box;
 		margin: 0 0 20px 0;
 	}
+	.time_widget {
+		.time {
+			font-size: 55px;
+		}
+	}
 	.layout_widget {
 		ul.sortable {
 			margin: 0 0 0 10px;

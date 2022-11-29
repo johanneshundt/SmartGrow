@@ -414,6 +414,8 @@ form {
     width: 100%;
     box-sizing: border-box;
     margin: 0 0 20px 0; }
+  .container.mobile .widgets .time_widget .time {
+    font-size: 55px; }
   .container.mobile .widgets .layout_widget ul.sortable {
     margin: 0 0 0 10px; }
     .container.mobile .widgets .layout_widget ul.sortable li.plant {

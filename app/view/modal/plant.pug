@@ -12,9 +12,8 @@ form#plantForm(data-plant=plant._id method='post')
                     input(type="text" value=plant.text name="text")
                 .strain
                     label Strain
-                    select.select2(name="strain")
-                        each strain in strains
-                            option(value=strain._id selected=(strain._id.toString() === plant.strain._id.toString()))=strain.name + ' | ' + strain.breeder
+                    select.select2ajax(name="strain")
+                        option(value=plant.strain._id)=plant.strain.name+' ('+plant.strain.breeder.name+')'
                 .feminized
                     label.checkbox-container Feminisiert
                         input(type='checkbox' checked=plant.feminized name="feminized" value="true")

@@ -8,8 +8,8 @@ exports.plant = async function(req,res){
 	let settings = await model.settings.getSettings('Standard');
 	let stadium = (await tools.getCurrentStadium(settings)).current;
 	let options = {
-		plant: await model.plant.findById(req.params.plant).populate({path:'strain',model:'Strain'}).exec(),
-		strains: await model.strain.find({available:true},{breeder:true,name:true}).exec(),
+		plant: await model.plant.findById(req.params.plant).populate({path:'strain',model:'Strain',populate:{path:'breeder',model:'Breeder'}}).exec(),
+		strains: await model.strain.find({},{breeder:true,name:true}).exec(),
 		stadium: stadium
 	}
 	res.renderHtml('modal/plant', options)

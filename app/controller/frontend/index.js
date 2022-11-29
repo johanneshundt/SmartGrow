@@ -43,38 +43,91 @@ fetchSeedfinder = async function(req,res){
 	}
 }
 */
+/**
+ * update breeders data and add strains to strains collection
+ * @return {Promise<boolean>}
+ */
 
-getBreederInfo = async function(){
+getBreeders = async function(){
 	//https://en.seedfinder.eu/api/json/ids.json?strains=1&ac=3f368a610ae22d50c6092ee2792872db
 	let baseUrl = 'https://en.seedfinder.eu/api/json/ids.json?'
 	let url = baseUrl+'strains=1&ac='+process.env.SEEDFINDER_API_KEY
 	try {
 		let {data} = await axios.get(url)
-		console.log(data)
+		for(let breederID in data){
+			let breeder = {
+				_id:breederID,
+				name:data[breederID].name,
+				logo:data[breederID].logo
+			}
+			await model.breeder.findOneAndUpdate({_id:breederID},breeder,{upsert:true}).exec()
+			if(Object.keys(data[breederID].strains)){
+				for(let strainID of Object.keys(data[breederID].strains)){
+					let strain = {
+						breeder:breederID,
+						strainID:strainID
+					}
+					await model.strain.findOneAndUpdate({breeder:breederID,strainID:strainID},strain,{upsert:true}).exec();
+				}
+			}
+		}
 	} catch (error) {
 		console.error(error)
+		return false;
 	}
 }
+/**
+ * update info of all strains
+ * @return {Promise<void>}
+ */
+getStrains = async function(){
+	let strains = await model.strain.find({name:null}).exec();
+	for(let strain of strains){
+		let strainInfo = await getStrainInfo(strain.breeder,strain.strainID)
+		await model.strain.findByIdAndUpdate(strain._id,strainInfo).exec();
+	}
+}
+/**
+ * update info of a single strain
+ * @param breeder
+ * @param name
+ * @return {Promise<boolean|{seed_types: {auto: *}, urls: {seedfinder}, name, sort, flowering_time: *}>}
+ */
 getStrainInfo = async function(breeder,name){
 	//https://en.seedfinder.eu/api/json/strain.json?br=Royal_Queen_Seeds&str=Triple_G&ac=3f368a610ae22d50c6092ee2792872db&lng=de&parents=1&hybrids=1&medical=1&pics=1
 	let baseUrl = 'https://de.seedfinder.eu/api/json/strain.json?'
-	let url = baseUrl+'br='+breeder+'&str='+name+'&ac='+process.env.SEEDFINDER_API_KEY+'&lng=de&parents=1&hybrids=1&medical=1&pics=1'
+	let url = baseUrl+'br='+breeder+'&str='+name+'&ac='+process.env.SEEDFINDER_API_KEY+'&lng=de&medical=1&pics=1'
 	try {
 		let {data} = await axios.get(url)
-		console.log(data)
+		return {
+			name:data.name,
+			sort:data.brinfo.type,
+			/*location: {
+				indoor:Boolean,
+				outdoor:Boolean
+			},*/
+			flowering_time:data.brinfo.flowering.days,
+			seed_types: {
+				auto: data.brinfo.flowering.auto,
+				//feminized: Boolean,
+				//normal: Boolean
+			},
+			//available: Boolean,
+			urls: {
+				seedfinder:data.links.info,
+				//breeder:String
+			}
+		}
 	} catch (error) {
 		console.error(error)
+		return false;
 	}
-
-
 }
 
 
-
-
 exports.index = async function(req,res){
-	//getBreederInfo()
-	//getStrainInfo('Royal_Queen_Seeds','Triple_G')
+	//getBreeders()
+	getStrains()
 
 	let options = {
 		settings: await model.settings.getSettings('Standard'),

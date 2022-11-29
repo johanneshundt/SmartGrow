@@ -313,16 +313,18 @@ exports.collectData = async function(){
 	}
 	//layout
 	for(let plant of settings.layout.plants){
-		data.widgets.layout.plants.push({
-			id: plant._id,
-			text: plant.text,
-			name: plant.strain.name,
-			breeder: plant.strain.breeder,
-			feminized: plant.feminized
-		})
+		if(plant.strain) {
+			data.widgets.layout.plants.push({
+				id: plant._id,
+				text: plant.text,
+				name: plant.strain.name,
+				breeder: plant.strain.breeder.name,
+				feminized: plant.feminized
+			})
+		}
 	}
 	//set layout.changed to false -> to prevent updating the layout when it's not changed
-	VALUES.layoutChanged = false;
+	VALUES.layoutChanged = false; //TODO: save this in session
 	//send data to client
 	IO.emit('data', data);
 }
