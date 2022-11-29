@@ -13,7 +13,8 @@
 
 body {
   font-family: 'Orbitron', sans-serif;
-  background-image: url("/assets/media/background/bg.jpg"); }
+  background-image: url("/assets/media/background/bg.jpg");
+  background-size: cover; }
 
 .container {
   position: absolute;
@@ -370,6 +371,29 @@ form {
       font-size: 20px; }
     .container .widgets .water_widget .countdown {
       font-size: 30px; }
+
+.container.mobile .widgets {
+  display: block; }
+  .container.mobile .widgets .widget {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 20px 0; }
+  .container.mobile .widgets .light_widget .time {
+    font-size: 30px; }
+  .container.mobile .widgets .schedule_widget table, .container.mobile .widgets .parameters_widget table {
+    font-size: 12px; }
+  .container.mobile .widgets .buttons_widget {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; }
+    .container.mobile .widgets .buttons_widget button {
+      float: none;
+      flex-grow: 1;
+      border-radius: 0; }
+      .container.mobile .widgets .buttons_widget button.settings, .container.mobile .widgets .buttons_widget button.schedule, .container.mobile .widgets .buttons_widget button.camera {
+        border: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
 
 modal {
   color: #fff;

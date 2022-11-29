@@ -1,5 +1,5 @@
-//const axios = require('axios')
-//const cheerio = require('cheerio')
+const axios = require('axios')
+const cheerio = require('cheerio')
 const model = require('../../model')
 const tools = require('../tools')
 
@@ -43,7 +43,39 @@ fetchSeedfinder = async function(req,res){
 	}
 }
 */
+
+getBreederInfo = async function(){
+	//https://en.seedfinder.eu/api/json/ids.json?strains=1&ac=3f368a610ae22d50c6092ee2792872db
+	let baseUrl = 'https://en.seedfinder.eu/api/json/ids.json?'
+	let url = baseUrl+'strains=1&ac='+process.env.SEEDFINDER_API_KEY
+	try {
+		let {data} = await axios.get(url)
+		console.log(data)
+	} catch (error) {
+		console.error(error)
+	}
+}
+getStrainInfo = async function(breeder,name){
+	//https://en.seedfinder.eu/api/json/strain.json?br=Royal_Queen_Seeds&str=Triple_G&ac=3f368a610ae22d50c6092ee2792872db&lng=de&parents=1&hybrids=1&medical=1&pics=1
+	let baseUrl = 'https://de.seedfinder.eu/api/json/strain.json?'
+	let url = baseUrl+'br='+breeder+'&str='+name+'&ac='+process.env.SEEDFINDER_API_KEY+'&lng=de&parents=1&hybrids=1&medical=1&pics=1'
+	try {
+		let {data} = await axios.get(url)
+		console.log(data)
+	} catch (error) {
+		console.error(error)
+	}
+
+
+}
+
+
+
+
 exports.index = async function(req,res){
+	//getBreederInfo()
+	//getStrainInfo('Royal_Queen_Seeds','Triple_G')
+
 	let options = {
 		settings: await model.settings.getSettings('Standard'),
 		title:'Startseite'

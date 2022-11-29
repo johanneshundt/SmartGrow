@@ -58,3 +58,36 @@
 	@import "widgets/water";
 }
 
+.container.mobile .widgets {
+	display: block;
+	.widget {
+		width: 100%;
+		box-sizing: border-box;
+		margin: 0 0 20px 0;
+	}
+	.light_widget {
+		.time {
+			font-size: 30px;
+		}
+	}
+	.schedule_widget,.parameters_widget {
+		table {
+			font-size: 12px;
+		}
+	}
+	.buttons_widget {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		button {
+			float: none;
+			flex-grow: 1;
+			border-radius: 0;
+			&.settings,&.schedule,&.camera {
+				border: none;
+				border-right: 1px solid rgba(255,255,255,0.5);
+				border-bottom: 1px solid rgba(255,255,255,0.5);
+			}
+		}
+	}
+}
