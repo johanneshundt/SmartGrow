@@ -65,6 +65,27 @@
 		box-sizing: border-box;
 		margin: 0 0 20px 0;
 	}
+	.layout_widget {
+		ul.sortable {
+			margin: 0 0 0 10px;
+			li.plant {
+				border-radius: 10px;
+				margin: 10px 10px 0 0;
+				.text {
+					font-size: 12px;
+				}
+				.name {
+					font-size: 12px;
+				}
+				.breeder {
+					display: none;
+				}
+				.feminized {
+					display: none;
+				}
+			}
+		}
+	}
 	.light_widget {
 		.time {
 			font-size: 30px;

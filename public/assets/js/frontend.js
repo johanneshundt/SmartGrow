@@ -12,7 +12,18 @@ class SmartGrow {
 		this.initHumidityChart();
 		this.initSocket();
 	}
+	resizeLayout(){
+		if($('.container').hasClass('mobile')){
+			console.log('mobile')
+			let widgetWidth = $('.layout_widget').outerWidth()
+			let plantWidth = ((widgetWidth-40)/3)-2
+			console.log(widgetWidth,plantWidth)
+			$('.layout_widget .plant').css({'width':plantWidth+'px',height:plantWidth+'px'})
+			$('.layout_widget').css({height:(plantWidth*3)+40+'px'})
 
+
+		}
+	}
 	eventHandler(){
 		let plugin = this;
 		$(document).on('click','li.plant',async function (){
@@ -289,6 +300,7 @@ class SmartGrow {
 					</li>
 				`);
 				}
+				plugin.resizeLayout()
 			}
 			else if(!data.widgets.layout) {
 				$('.layout_widget').addClass('empty')
