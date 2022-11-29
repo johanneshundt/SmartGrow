@@ -99,6 +99,9 @@ getStrainInfo = async function(breeder,name){
 	let url = baseUrl+'br='+breeder+'&str='+name+'&ac='+process.env.SEEDFINDER_API_KEY+'&lng=de&medical=1&pics=1'
 	try {
 		let {data} = await axios.get(url)
+		if(!data.brinfo){
+			return false;
+		}
 		return {
 			name:data.name,
 			sort:data.brinfo.type,
@@ -123,12 +126,10 @@ getStrainInfo = async function(breeder,name){
 		return false;
 	}
 }
-
+//getBreeders()
+//getStrains()
 
 exports.index = async function(req,res){
-	//getBreeders()
-	getStrains()
-
 	let options = {
 		settings: await model.settings.getSettings('Standard'),
 		title:'Startseite'
