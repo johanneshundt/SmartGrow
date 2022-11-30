@@ -1,16 +1,16 @@
 .water_widget.widget.empty
     i.icon.fa-duotone.fa-faucet.if-off
     i.icon.fa-duotone.fa-faucet-drip.if-on(style="color:#00c4ff;")
-    label Bewässerung
+    label(i18n='title')
     .amount
     .duration
     .amount_per_plant
     .interval
     hr
-    label Nächste Bewässerung
+    label(i18n='nextTitle')
     .next
     .countdown
     .empty
         i.icon.fa-duotone.fa-faucet.if-off
-        label Bewässerung
-        h2 keine Bewässerung
+        label(i18n='title')
+        h2(i18n='empty')

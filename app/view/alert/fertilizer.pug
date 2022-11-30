@@ -1,0 +1,14 @@
+form.close(method="POST" action="")
+    .content
+        .icon
+            i.fa-duotone.fa-flask.fa-beat(style="--fa-animation-duration: 3s;")
+        .message
+            h1(i18n='title')
+            p(i18n='description')
+            if(fertilizer && fertilizer.source)
+                h1=fertilizer.source.supplier+' '+fertilizer.source.name
+            if(fertilizer && fertilizer.amount && fertilizer.unit)
+                h1=(waterAmount*fertilizer.amount)+' '+fertilizer.unit
+        .buttons
+            button.close(type="button" i18n='button.reminder.label')
+            button.ok(type="submit" i18n='button.ok.label')

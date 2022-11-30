@@ -1,0 +1,13 @@
+form.close(method="POST" action='set/plant/'+plant._id+'/history/note' data-reopen-url='plant' data-reopen-data=plant._id)
+    .content
+        .icon
+            i.fa-duotone.fa-notes.fa-beat(style="--fa-animation-duration: 3s;")
+        .message
+            h2(i18n='title')
+            h4(i18n='dateLabel')
+            input(name='date' type='date' value=new Date().toLocaleDateString('en-CA'))
+            h4(i18n='noteLabel')
+            textarea(name='value')
+        .buttons
+            button.close(type="button" i18n='button.abort.label')
+            button.save(type="submit" i18n='button.save.label')

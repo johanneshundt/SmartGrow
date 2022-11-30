@@ -1,4 +1,4 @@
-form#plantForm(data-plant=plant._id method='post')
+form.close(action='set/plant/'+plant._id method='post')
     .head
         .title=plant.strain.name
             small=plant.text
@@ -8,42 +8,43 @@ form#plantForm(data-plant=plant._id method='post')
         .split_2_1
             .left
                 .text
-                    label Text
+                    label(i18n='input.text.label')
                     input(type="text" value=plant.text name="text")
                 .strain
-                    label Strain
+                    label(i18n='input.strain.label')
                     select.select2ajax(name="strain")
                         option(value=plant.strain._id)=plant.strain.name+' ('+plant.strain.breeder.name+')'
                 .feminized
-                    label.checkbox-container Feminisiert
+                    label.checkbox-container
+                        span(i18n='input.feminized.label')
                         input(type='checkbox' checked=plant.feminized name="feminized" value="true")
                         span.checkbox-checkmark
                 .info
-                    h2 Info
+                    h2(i18n='info.title')
                     table
                         tr
-                            th Topf
-                            td 28cm x 28cm x 29cm
-                            td 14 Liter
+                            th(i18n='info.pot')
+                            td #28cm x 28cm x 29cm
+                            td #14 Liter
                         tr
-                            th Bewässerung
+                            th(i18n='info.water')
                             td
-                                | Gardena Micro-Drip
+                                | #Gardena Micro-Drip
                                 br
-                                | 6L/Stunde
+                                | #6L/Stunde
                             td
-                                | Reihentropfer (2L/h)
+                                | #Reihentropfer (2L/h)
                                 br
-                                | Reihentropfer (2L/h)
+                                | #Reihentropfer (2L/h)
                                 br
-                                | Reihentropfer (2L/h)
+                                | #Reihentropfer (2L/h)
 
                         tr
-                            th Medium
+                            th(i18n='info.soil')
                             td Plagron Growmix
                             td 14 Liter
             .right
-                h2 Verlauf
+                h2(i18n='history.title')
                 -
                     plant.history.sort(function(a,b){
                         return new Date(b.date) - new Date(a.date);
@@ -51,21 +52,27 @@ form#plantForm(data-plant=plant._id method='post')
                 each history in plant.history
                     .history
                         i.fa-duotone(class=history.icon)
-                        .date=new Date(history.date).toLocaleDateString('fr-CH')
+                        .date(i18nDate='history.dateFormat')=history.date
                         .text!=history.value
-                        .remove(data-id=history._id)
+                        .remove(data-delete='set/plant/'+plant._id+'/history/'+history._id data-reopen-url='plant' data-reopen-data=plant._id)
                             i.fa-duotone.fa-times
     .footer
         if(stadium.pot)
-            button.pot(type="button" data-pot=stadium.pot._id) Topf
+            button.pot(type="button" data-modal="pot" data-id=stadium.pot._id data-reopen-url='plant' data-reopen-data=plant._id)
+                span(i18n='button.pot.label')
                 i.fa-duotone.fa-honey-pot
-        button.cut(type="button") Beschneiden
+        button.cut(type="button" data-alert='plant/'+plant._id+'/cut')
+            span(i18n='button.cut.label')
             i.fa-duotone.fa-scissors
-        button.measure(type="button") Messen
+        button.measure(type="button" data-alert='plant/'+plant._id+'/measure')
+            span(i18n='button.measure.label')
             i.fa-duotone.fa-ruler
-        button.note(type="button") Anmerkung
+        button.note(type="button" data-alert='plant/'+plant._id+'/note')
+            span(i18n='button.note.label')
             i.fa-duotone.fa-notes
-        button.save(type="submit") Speichern
+        button.save(type="submit")
+            span(i18n='button.save.label')
             i.fa-duotone.fa-floppy-disk
-        button.close(type="button") Abbrechen
+        button.close(type="button")
+            span(i18n='button.abort.label')
             i.fa-duotone.fa-times

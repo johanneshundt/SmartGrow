@@ -1,10 +1,12 @@
 .head
-    .title Anbauplan
+    .title(i18n='title')
     .close
         i.fa-duotone.fa-times
 .content ...
 .footer
-    button.save(type="submit") Speichern
+    button.save(type="submit")
+        span(i18n='button.save.label')
         i.fa-duotone.fa-floppy-disk
-    button.close(type="button") Abbrechen
+    button.close(type="button")
+        span(i18n='button.abort.label')
         i.fa-duotone.fa-times

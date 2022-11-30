@@ -1,26 +1,26 @@
 .buttons_widget.widget
-    button.fan
+    button.fan(data-set="fan")
         i.fa-duotone.fa-sync.if-off
         i.fa-duotone.fa-sync.fa-spin.if-on(style="--fa-animation-duration: 5s;")
-        | Umluft
-    button.exhaust
+        span(i18n='fan')
+    button.exhaust(data-set="exhaust")
         i.fa-duotone.fa-fan.if-off
         i.fa-duotone.fa-fan.fa-spin.if-on(style="--fa-animation-duration: 5s;")
-        | Abluft
-    button.water
+        span(i18n='exhaust')
+    button.water(data-set="water")
         i.fa-duotone.fa-faucet.if-off
         i.fa-duotone.fa-faucet-drip.if-on
-        | Bewässerung
-    button.light
+        span(i18n='water')
+    button.light(data-set="light")
         i.fa-duotone.fa-lightbulb.if-off
         i.fa-duotone.fa-lightbulb-on.if-on
-        | Beleuchtung
-    button.settings
+        span(i18n='light')
+    button.settings(data-modal='settings')
         i.fa-duotone.fa-gears
-        | Einstellungen
-    button.schedule
+        span(i18n='settings')
+    button.schedule(data-modal='schedule')
         i.fa-duotone.fa-calendar-check
-        | Plan
-    button.camera
+        span(i18n='schedule')
+    button.camera(data-modal='camera')
         i.fa-duotone.fa-camera-security
-        | Kamera
+        span(i18n='camera')

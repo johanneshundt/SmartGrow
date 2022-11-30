@@ -80,6 +80,7 @@ app.set('trust proxy', true)
 app.use('/',router.frontend);
 app.use('/set',router.set);
 app.use('/modal',router.modal);
+app.use('/alert',router.alert);
 app.use('/error',router.error);
 //API router
 app.use('/api',router.api); //public api

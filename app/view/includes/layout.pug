@@ -8,23 +8,10 @@ head
     link(rel='stylesheet' href='assets/plugins/select2/select2.min.css')
     link(rel='stylesheet' href='assets/css/fontAwesome.css')
     link(rel='stylesheet' href='assets/css/frontend.css')
-.container
+.container(lang='de')
     block content
     modal.hidden
     alert.hidden
-        form.alertForm
-            .content
-                .icon
-                    i.fa-duotone.fa-flask.fa-beat(style="--fa-animation-duration: 3s;")
-                .message
-                    h1 Dünger hinzufügen
-                    p Bitte fügen Sie dem Dünger-Beimischgerät hinzu:
-                    h1 Plagron Terra Bloom
-                    h1 18 ml
-                .image
-                    img(src="assets/media/fertilizer/plagron_terra_bloom.jpg")
-                .buttons
-                    button.ok(type="button") OK
 script(src='assets/plugins/jquery/jquery.min.js')
 script(src='assets/plugins/jquery-ui/jquery-ui.min.js')
 script(src='assets/plugins/apexcharts/apexcharts.min.js')

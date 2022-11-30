@@ -1,17 +1,17 @@
 .head
-    .title='Topf '+pot.shape
+    .title(i18n='title')
     .close
         i.fa-duotone.fa-times
 .content
     .split_2_1
         .left
             .shape
-                label Form
+                label(i18n='input.form.label')
                 select.select2(name="shape")
                     option(value="Rechteckig") Rechteckig
                     option(value="Rund") Rund
             .volume
-                label Volumen
+                label(i18n='input.volume.label')
                 .inputGroup
                     input(name='volume.amount' type='number' value=pot.volume.amount)
                     select(name='volume.amount')
@@ -20,11 +20,10 @@
                         option(selected=pot.volume.unit==='m³') m³
                         option(selected=pot.volume.unit==='cm³') cm³
                         option(selected=pot.volume.unit==='dm³') dm³
-
-
-
 .footer
-    button.save(type="submit") Speichern
+    button.save(type="submit")
+        span(i18n='button.save.label')
         i.fa-duotone.fa-floppy-disk
-    button.close(type="button") Abbrechen
+    button.close(type="button")
+        span(i18n='button.abort.label')
         i.fa-duotone.fa-times

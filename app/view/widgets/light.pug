@@ -1,7 +1,7 @@
 .light_widget.widget.empty
     i.icon.fa-duotone.fa-lightbulb.if-off
     i.icon.fa-duotone.fa-lightbulb-on.if-on(style="color:#6eff00;")
-    label Beleuchtung
+    label(i18n='title')
     .amount
     .time
     .countdown
@@ -9,15 +9,15 @@
     hr
     table
         tr
-            td Leistung:
+            td(i18n='source.power')
             td.power
         tr
-            td Temperatur:
+            td(i18n='source.temperature')
             td.colorTemperature
         tr
-            td Helligkeit:
+            td(i18n='source.flux')
             td.lightFlux
     .empty
         i.icon.fa-duotone.fa-lightbulb.if-off
-        label Beleuchtung
-        h2 keine Beleuchtung
+        label(i18n='title')
+        h2(i18n='empty')
