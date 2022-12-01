@@ -164,9 +164,9 @@ export const de = {
 				temperature:'Farbtemperatur',
 				flux:'Lichtleistung'
 			},
-			powerUnit:'W',
-			temperatureUnit:'K',
-			fluxUnit:'L'
+			powerUnit:'Watt',
+			temperatureUnit:'Kelvin',
+			fluxUnit:'Lumen'
 
 		},
 		buttons: {
@@ -384,9 +384,9 @@ export const en = {
 				temperature:'Temperature',
 				flux:'Light flux'
 			},
-			powerUnit:'W',
-			temperatureUnit:'K',
-			fluxUnit:'L'
+			powerUnit:'Watts',
+			temperatureUnit:'Kelvin',
+			fluxUnit:'Lumen'
 
 		},
 		buttons: {
