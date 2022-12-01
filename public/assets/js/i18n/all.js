@@ -3,6 +3,14 @@ export const de = {
 		camera: {
 			title: 'Kameras',
 		},
+		costs: {
+			title: 'Kostenübersicht',
+			button: {
+				abort: {
+					label:'Abbrechen'
+				}
+			}
+		},
 		'settings/schedule': {
 			title: 'Anbauplan',
 			button: {
@@ -16,12 +24,21 @@ export const de = {
 		},
 		'settings/layout': {
 			title: 'Layout',
+			plants:'Pflanzen',
 			button: {
 				abort: {
 					label:'Abbrechen'
 				},
 				save: {
 					label:'Speichern'
+				},
+			},
+			input: {
+				columns: {
+					label:'X <i class="fa-duotone fa-right-from-line"></i>'
+				},
+				rows: {
+					label:'Y <i class="fa-duotone fa-down-from-line"></i>'
 				},
 			}
 		},
@@ -33,6 +50,41 @@ export const de = {
 				},
 				save: {
 					label:'Speichern'
+				},
+			},
+			input: {
+				temperature: {
+					label:'Temperatur'
+				},
+				humidity: {
+					label:'Luftfeuchtigkeit'
+				},
+				stadium: {
+					label:'Anbauphase'
+				},
+				layout: {
+					label:'Layout'
+				},
+				light: {
+					label:'Licht'
+				},
+				water: {
+					label:'Wasser'
+				},
+				clock: {
+					label:'Uhr'
+				},
+				fertilizer: {
+					label:'Dünger'
+				},
+				parameters: {
+					label:'Parameter'
+				},
+				schedule: {
+					label:'Anbauplan'
+				},
+				buttons: {
+					label:'Buttons'
 				},
 			}
 		},
@@ -228,7 +280,9 @@ export const de = {
 			light: 'Beleuchtung',
 			settings: 'Einstellungen',
 			schedule: 'Anbauplan',
-			camera: 'Kamera'
+			camera: 'Kamera',
+			costs: 'Kosten',
+			runningCosts: 'Laufende Kosten:',
 		},
 		fertilizer: {
 			title:'Dünger',

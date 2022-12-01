@@ -222,6 +222,8 @@ exports.collectData = async function(){
 	data.widgets.layout = {
 		id:settings.layout._id,
 		plants:[],
+		cols:settings.layout.cols,
+		rows:settings.layout.rows,
 		changed:VALUES.layoutChanged //TODO: set this in session
 	}
 	//light
@@ -327,4 +329,50 @@ exports.collectData = async function(){
 	VALUES.layoutChanged = false; //TODO: save this in session
 	//send data to client
 	IO.emit('data', data);
+}
+
+
+exports.calculateOverallCosts = async function(schedule){
+	//TODO:
+	//	costs = [];
+	//	lastSoilId = false;
+	//	for(let stadium of schedule.stadium)
+	//		costs.push(await calculateCosts(stadium,stadium.soil._id === lastSoilId)),
+	//		lastSoilId = stadium.soil._id;
+	//	return costs
+}
+
+//TODO: do the calculations
+exports.calculateCosts = async function(stadium,newSoil=false){
+	//TODO: add heater
+	//TODO: add buyingPrice to fan,exhaust,light,heater
+	//TODO: add usableTime to fan,exhaust,light,heater
+	//TODO: add water costs to settings
+	//TODO: add costs to soil,fertilizer
+	let costs = {
+		stadium: stadium.name,
+		electricity: {
+			light: 76.44, 		// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((12h*49*400W)/1000)*0.325€/kWh
+			fan: 11.466, 		// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*30W)/1000)*0.325€/kWh
+			exhaust: 14.1414,	// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*37W)/1000)*0.325€/kWh
+			//heater: 63.7,		// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((2h*49*2.000W)/1000)*0.325€/kWh
+			sum: 102.0474,
+		},
+		consumables: {
+			water: 0.441,		// totalAmount*waterPrice							-> e.g. 4.5l*49*0.002€/l
+			soil: 52.668,		// (potVolume*plants)*(soilPrice/packageAmount)		-> e.g. (14l*9)*(20.90€/50l)
+			fertilizer: 4.8069,	// totalAmount*(fertilizerPrice/packageAmount)		-> e.g. (9ml*49)*(10.90€/1000ml)
+			sum: 57.9159,
+		},
+		wearing: {
+			fan:1.3417,			// (itemPrice/usableTime)*totalOnTime 				-> e.g. (19.99€/17.520h)*(24h*49)
+			filter:6.2330,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (46.43€/8.760h)*(24h*49)
+			exhaust:3.3796,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (50.35€/17.520h)*(24h*49)
+			light:0.5336,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (15.90€/17.520h)*(12h*49)
+			//heater:0.1113,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (19.90€/17.520h)*(2h*49)
+			sum: 11.4879,
+		},
+		sum: 171.4512
+	}
+	return costs;
 }

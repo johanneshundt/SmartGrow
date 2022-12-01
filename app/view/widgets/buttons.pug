@@ -1,26 +1,36 @@
 .buttons_widget.widget
-    button.fan(data-set="fan")
-        i.fa-duotone.fa-sync.if-off
-        i.fa-duotone.fa-sync.fa-spin.if-on(style="--fa-animation-duration: 5s;")
-        span(i18n='fan')
-    button.exhaust(data-set="exhaust")
-        i.fa-duotone.fa-fan.if-off
-        i.fa-duotone.fa-fan.fa-spin.if-on(style="--fa-animation-duration: 5s;")
-        span(i18n='exhaust')
-    button.water(data-set="water")
-        i.fa-duotone.fa-faucet.if-off
-        i.fa-duotone.fa-faucet-drip.if-on
-        span(i18n='water')
-    button.light(data-set="light")
-        i.fa-duotone.fa-lightbulb.if-off
-        i.fa-duotone.fa-lightbulb-on.if-on
-        span(i18n='light')
-    button.settings(data-modal='settings')
-        i.fa-duotone.fa-gears
-        span(i18n='settings')
-    button.schedule(data-modal='settings/schedule')
-        i.fa-duotone.fa-calendar-check
-        span(i18n='schedule')
-    button.camera(data-modal='camera')
-        i.fa-duotone.fa-camera-security
-        span(i18n='camera')
+    .left
+        button.fan(data-set="fan")
+            i.fa-duotone.fa-sync.if-off
+            i.fa-duotone.fa-sync.fa-spin.if-on(style="--fa-animation-duration: 5s;")
+            span(i18n='fan')
+        button.exhaust(data-set="exhaust")
+            i.fa-duotone.fa-fan.if-off
+            i.fa-duotone.fa-fan.fa-spin.if-on(style="--fa-animation-duration: 5s;")
+            span(i18n='exhaust')
+        button.water(data-set="water")
+            i.fa-duotone.fa-faucet.if-off
+            i.fa-duotone.fa-faucet-drip.if-on
+            span(i18n='water')
+        button.light(data-set="light")
+            i.fa-duotone.fa-lightbulb.if-off
+            i.fa-duotone.fa-lightbulb-on.if-on
+            span(i18n='light')
+    .center
+        .costs
+            span(i18n='runningCosts')
+            br
+            span 54,89 €
+    .right
+        button.costs(data-modal='costs')
+            i.fa-duotone.fa-euro-sign
+            span(i18n='costs')
+        button.settings(data-modal='settings')
+            i.fa-duotone.fa-gears
+            span(i18n='settings')
+        button.schedule(data-modal='settings/schedule')
+            i.fa-duotone.fa-calendar-check
+            span(i18n='schedule')
+        button.camera(data-modal='camera')
+            i.fa-duotone.fa-camera-security
+            span(i18n='camera')

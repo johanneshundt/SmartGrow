@@ -357,11 +357,18 @@ class Schedule extends Widget {
 	}
 }
 class Layout extends Widget {
+	columns = 3;
+	rows = 3;
 	constructor() {
 		super($('.layout_widget'),'widgets.layout');
 		if(this.isInitialized){
 			this.initSortable()
 		}
+	}
+	set(columns,rows){
+		this.columns = columns;
+		this.rows = rows;
+		this.resizeLayout();
 	}
 	update(id,plants) {
 		let sortable = this.element.find('ul.sortable')
@@ -380,12 +387,13 @@ class Layout extends Widget {
 		this.resizeLayout()
 	}
 	resizeLayout(){
+		let widgetWidth = this.element.outerWidth()
+		let plantWidth = ((widgetWidth-(20*this.columns)-20)/this.columns)-2
+		let plantHeight = ((widgetWidth-(20*this.rows)-20)/this.rows)-2
 		if(Tools.checkMobile()){
-			let widgetWidth = this.element.outerWidth()
-			let plantWidth = ((widgetWidth-40)/3)-2
-			this.element.css({height:(plantWidth*3)+40+'px'})
-			this.element.find('.plant').css({'width':plantWidth+'px',height:plantWidth+'px'})
+			this.element.css({height:(plantHeight*this.rows)+40+'px'})
 		}
+		this.element.find('.plant').css({'width':plantWidth+'px',height:plantHeight+'px'})
 	}
 	initSortable(){
 		let widget = this;

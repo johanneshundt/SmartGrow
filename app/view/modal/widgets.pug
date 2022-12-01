@@ -2,7 +2,65 @@
     .title(i18n='title')
     .close
         i.fa-duotone.fa-times
-.content ...
+.content
+    .split_2_1
+        .left
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.clock.label')
+                    input(type='checkbox' name="clock" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.temperature.label')
+                    input(type='checkbox' name="temperature" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.humidity.label')
+                    input(type='checkbox' name="humidity" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.layout.label')
+                    input(type='checkbox' name="layout" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.light.label')
+                    input(type='checkbox' name="light" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.water.label')
+                    input(type='checkbox' name="water" value="true")
+                    span.checkbox-checkmark
+        .right
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.stadium.label')
+                    input(type='checkbox' name="stadium" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.schedule.label')
+                    input(type='checkbox' name="schedule" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.parameters.label')
+                    input(type='checkbox' name="parameters" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.buttons.label')
+                    input(type='checkbox' name="buttons" value="true")
+                    span.checkbox-checkmark
+            .formRow
+                label.checkbox-container
+                    span(i18n='input.fertilizer.label')
+                    input(type='checkbox' name="fertilizer" value="true")
+                    span.checkbox-checkmark
 .footer
     button.save(type="submit")
         span(i18n='button.save.label')

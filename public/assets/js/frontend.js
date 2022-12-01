@@ -127,6 +127,7 @@ class SmartGrow {
 				if(data.widgets.layout && data.widgets.layout.changed){
 					Widgets.layout.empty(false)
 					Widgets.layout.update(data.widgets.layout.id,data.widgets.layout.plants)
+					Widgets.layout.set(data.widgets.layout.cols,data.widgets.layout.rows)
 				}
 				else if(!data.widgets.layout) {
 					Widgets.layout.empty(true)

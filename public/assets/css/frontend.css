@@ -220,7 +220,15 @@ form {
   .container .widgets .buttons_widget {
     grid-area: buttons_widget;
     align-self: self-end;
-    padding: 0; }
+    padding: 0;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr auto;
+    gap: 0 0;
+    grid-template-areas: "left center right" "last last last";
+    justify-content: center;
+    align-content: center; }
     .container .widgets .buttons_widget button {
       cursor: pointer;
       color: #fff;
@@ -229,25 +237,41 @@ form {
       display: inline-grid;
       background: rgba(0, 0, 0, 0.25);
       border: none;
-      border-right: 1px solid rgba(255, 255, 255, 0.25);
       width: 130px;
       height: 80px; }
       .container .widgets .buttons_widget button i {
         color: #fff;
         font-size: 40px;
         padding: 10px 0 6px 0; }
-      .container .widgets .buttons_widget button:first-child {
-        border-radius: 10px 0 0 10px; }
       .container .widgets .buttons_widget button.on {
         border-bottom: 3px solid #7aff00; }
       .container .widgets .buttons_widget button.off {
         border-bottom: 3px solid red; }
       .container .widgets .buttons_widget button:hover {
         background: transparent; }
-      .container .widgets .buttons_widget button.settings, .container .widgets .buttons_widget button.schedule, .container .widgets .buttons_widget button.camera {
-        border: none;
-        border-left: 1px solid rgba(255, 255, 255, 0.25);
-        float: right; }
+    .container .widgets .buttons_widget .left {
+      display: flex;
+      flex-wrap: wrap;
+      grid-area: left; }
+      .container .widgets .buttons_widget .left button {
+        border-right: 1px solid rgba(255, 255, 255, 0.25); }
+        .container .widgets .buttons_widget .left button:first-child {
+          border-radius: 10px 0 0 10px; }
+    .container .widgets .buttons_widget .center {
+      grid-area: center;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      font-size: 20px;
+      text-align: center; }
+    .container .widgets .buttons_widget .right {
+      display: flex;
+      flex-wrap: wrap;
+      grid-area: right; }
+      .container .widgets .buttons_widget .right button {
+        border-left: 1px solid rgba(255, 255, 255, 0.25); }
+        .container .widgets .buttons_widget .right button:last-child {
+          border-radius: 0 10px 10px 0; }
   .container .widgets .fertilizer_widget {
     grid-area: fertilizer_widget; }
     .container .widgets .fertilizer_widget .type {
@@ -292,8 +316,6 @@ form {
       .container .widgets .layout_widget .sortable li.plant {
         margin: 20px 20px 0 0;
         float: left;
-        width: 176px;
-        height: 176px;
         box-sizing: border-box;
         cursor: pointer;
         border: 1px solid rgba(255, 255, 255, 0.25);
@@ -430,18 +452,16 @@ form {
     font-size: 30px; }
   .container.mobile .widgets .schedule_widget table, .container.mobile .widgets .parameters_widget table {
     font-size: 12px; }
-  .container.mobile .widgets .buttons_widget {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row; }
-    .container.mobile .widgets .buttons_widget button {
-      float: none;
-      flex-grow: 1;
-      border-radius: 0; }
-      .container.mobile .widgets .buttons_widget button.settings, .container.mobile .widgets .buttons_widget button.schedule, .container.mobile .widgets .buttons_widget button.camera {
-        border: none;
-        border-right: 1px solid rgba(255, 255, 255, 0.25);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+  .container.mobile .widgets .buttons_widget button {
+    float: none;
+    flex-grow: 1;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+  .container.mobile .widgets .buttons_widget .center {
+    grid-area: last;
+    padding: 20px; }
 
 modal {
   color: #fff;

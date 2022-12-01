@@ -102,18 +102,17 @@
 		}
 	}
 	.buttons_widget {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
 		button {
 			float: none;
 			flex-grow: 1;
 			border-radius: 0;
-			&.settings,&.schedule,&.camera {
-				border: none;
-				border-right: $widget_border;
-				border-bottom: $widget_border;
-			}
+			border: none;
+			border-right: $widget_border;
+			border-bottom: $widget_border;
+		}
+		.center {
+			grid-area: last;
+			padding: 20px;
 		}
 	}
 }

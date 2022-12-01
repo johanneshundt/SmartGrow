@@ -2,7 +2,105 @@
     .title(i18n='title')
     .close
         i.fa-duotone.fa-times
-.content ...
+.content
+    .formRow
+        label Name
+        input(type="text" name="name")
+    .formRow
+        label Startdatum
+        input(type="date" name="start")
+    h2 Phasen
+    table(width="100%")
+        thead
+            tr
+                th Phase
+                th Dauer
+                th Temperatur
+                th Luftfeuchtigkeit
+                th
+                    i.fa-duotone.fa-lightbulb
+                th
+                    i.fa-duotone.fa-faucet
+                th
+                    i.fa-duotone.fa-flask
+        tbody
+            tr
+                th Aussat
+                td 0
+                td 23°C - 26°C
+                td 50% - 70%
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+            tr
+                th Keimung
+                td 7
+                td 23°C - 26°C
+                td 50% - 70%
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-times
+            tr
+                th Wachstum
+                td 7
+                td 20°C - 30°C
+                td 40% - 70%
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+            tr
+                th Blüte
+                td 49
+                td 18°C - 26°C
+                td 40% - 60%
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+            tr
+                th Blüte Ende
+                td 14
+                td 18°C - 26°C
+                td 30% - 50%
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-times
+            tr
+                th Ernte
+                td 0
+                td
+                td
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+            tr
+                th Trocknung
+                td 7
+                td 17°C - 22°C
+                td 30% - 50%
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
 .footer
     button.save(type="submit")
         span(i18n='button.save.label')

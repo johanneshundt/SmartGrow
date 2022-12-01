@@ -7,6 +7,9 @@ exports.settings = async function(req,res){
 exports.schedule = async function(req,res){
 	res.renderHtml('modal/schedule', {})
 }
+exports.costs = async function(req,res){
+	res.renderHtml('modal/costs', {})
+}
 exports.layout = async function(req,res){
 	res.renderHtml('modal/layout', {})
 }
