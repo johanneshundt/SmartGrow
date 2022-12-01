@@ -1,0 +1,46 @@
+$baseColor:#fff;
+$fontBaseColor: #fff;
+$invertColor:#000;
+
+//main
+$font: 'Orbitron', sans-serif;
+$background_image: '/assets/media/background/bg.jpg';
+
+//border
+$border-radius: 10px;
+
+//paddings
+$padding_container: 20px;
+
+//colors
+$color: $fontBaseColor;
+$color_good: #7ffe00;
+$color_high: #ff0000;
+$color_low: #00ffff;
+$color_on: rgb(122,255,0);
+$color_off: rgb(255,0,0);
+$color_active: darken($fontBaseColor, 50%);
+$bg_active: lighten($color_active,100%);
+
+//widgets
+$widget_background-color: rgba($baseColor,0.25);
+$widget_border-color: rgba($baseColor,0.5);
+$widget_border: 1px solid $widget_border-color;
+//widget button
+$widget_button_background-color:rgba($invertColor,0.25);
+//widget layout
+$widget_layout_plant_border-color: rgba($baseColor,0.25);
+$widget_layout_plant_border: 1px solid $widget_layout_plant_border-color;
+$widget_layout_plant_border-hover: 1px solid opacify($widget_layout_plant_border-color,0.1);
+$widget_layout_plant_background-color: rgba($invertColor,0.25);
+$widget_layout_plant_background-hover-color: opacify($widget_layout_plant_background-color,0.1);
+
+//table
+$table_border-color: rgba($baseColor,0.5);
+$table_border: 1px solid $table_border-color;
+
+//inputs
+$input_border-color: rgba($baseColor,0.75);
+$input_border: 1px solid $input_border-color;
+$input_background-color: transparent;
+$input_dropdown_background-color: rgba($baseColor,0.25);

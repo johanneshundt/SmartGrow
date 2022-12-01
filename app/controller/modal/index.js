@@ -4,6 +4,17 @@ const tools = require('../tools')
 exports.settings = async function(req,res){
 	res.renderHtml('modal/settings', {})
 }
+exports.schedule = async function(req,res){
+	res.renderHtml('modal/schedule', {})
+}
+exports.layout = async function(req,res){
+	res.renderHtml('modal/layout', {})
+}
+exports.widgets = async function(req,res){
+	res.renderHtml('modal/widgets', {})
+}
+
+
 exports.plant = async function(req,res){
 	let settings = await model.settings.getSettings('Standard');
 	let stadium = (await tools.getCurrentStadium(settings)).current;
@@ -24,9 +35,7 @@ exports.pot = async function(req,res){
 exports.camera = async function(req,res){
 	res.renderHtml('modal/camera', {})
 }
-exports.schedule = async function(req,res){
-	res.renderHtml('modal/schedule', {})
-}
+
 //ALERTS
 exports.addFertilizer = async function(req,res){
 	//TODO: get current phase, get fertilizer amount

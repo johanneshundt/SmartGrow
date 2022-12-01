@@ -1,20 +1,6 @@
-.hidden {
-	display: none;
-}
-
-.good {
-	color: #7ffe00;
-}
-.high {
-	color: #ff0000;
-}
-.low {
-	color: #00ffff;
-}
-
 body {
-	font-family: 'Orbitron', sans-serif;
-	background-image: url("/assets/media/background/bg.jpg");
+	font-family: $font;
+	background-image: url($background_image);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -25,13 +11,41 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	padding: 20px;
+	padding: $padding_container;
 }
+
+/*
+HELPERS
+ */
+
+.hidden {
+	display: none;
+}
+.good {
+	color: $color_good;
+}
+.high {
+	color: $color_high;
+}
+.low {
+	color: $color_low;
+}
+.off .if-on {
+	display: none;
+}
+.on .if-off {
+	display: none;
+}
+
+/*
+INPUTS
+ */
+
 //CHECKBOX
 .checkbox-container {
 	display: block;
 	position: relative;
-	padding-left: 0px;
+	padding-left: 0;
 	cursor: pointer;
 	font-size: 30px;
 	-webkit-user-select: none;
@@ -52,14 +66,14 @@ body {
 	left: 300px;
 	height: 50px;
 	width: 50px;
-	background-color: transparent;
-	border: 1px solid rgba(255,255,255,0.75);
+	background-color: $input_background-color;
+	border: $input_border;
 }
 .checkbox-container:hover input ~ .checkbox-checkmark {
-	background-color: transparent;
+	background-color: $input_background-color;
 }
 .checkbox-container input:checked ~ .checkbox-checkmark {
-	background-color: transparent;
+	background-color: $input_background-color;
 }
 .checkbox-checkmark:after {
 	content: "";
@@ -74,7 +88,7 @@ body {
 	top: 10px;
 	width: 20px;
 	height: 15px;
-	border: solid white;
+	border: solid $color;
 	border-width: 0 6px 6px 0;
 	-webkit-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
@@ -89,15 +103,15 @@ body {
 	font-size: 20px;
 	padding: 15px;
 	background: transparent;
-	border: 1px solid rgba(255,255,255,0.75);
-	border-radius: 0;
+	border: $input_border;
+	border-radius:0;
 }
 .select2-dropdown {
-	background: rgba(255,255,255,0.75);
+	background: $input_dropdown_background-color;
 	backdrop-filter: blur(5px);
 }
 .select2-container--default .select2-search--dropdown .select2-search__field {
-	background: rgba(255,255,255,0.75);
+	background: $input_dropdown_background-color;
 	height: 50px;
 	font-size: 20px;
 }
@@ -105,32 +119,26 @@ body {
 	font-size: 20px;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-	color: #fff;
+	color: $color;
 }
 .select2-container--open .select2-dropdown--below {
-	background: rgba(255,255,255,0.25);
+	background: $input_dropdown_background-color;
 }
-
-.off .if-on {
-	display: none;
-}
-.on .if-off {
-	display: none;
-}
-
+//INPUT,TEXTAREA,SELECT
 input, textarea, select {
-	color: #fff;
+	color: $color;
 	flex-grow: 1;
 	padding: 15px;
 	font-size: 20px;
-	font-family: 'Orbitron';
-	background-color: transparent;
-	border: 1px solid rgba(255,255,255,0.75);
+	font-family: $font;
+	background-color: $input_background-color;
+	border: $input_border;
 	box-sizing: border-box;
 }
 select {
-	color: #898989;
+	color: darken($color,0.1);
 }
+//INPUT GROUP
 .inputGroup {
 	display: flex;
 	width: 100%;
@@ -139,18 +147,18 @@ select {
 		margin: 0 !important;
 	}
 	span {
-		border: 1px solid rgba(255,255,255,0.75);
+		border: $input_border;
 		box-sizing: border-box;
 		border-left: none;
 		padding: 15px;
 	}
 }
-
+//FORM
 form {
 	display: contents;
 }
 
-
+//mobile
 .container.mobile {
 	input, textarea, select {
 		width: 100%;

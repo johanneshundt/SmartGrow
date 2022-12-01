@@ -5,34 +5,34 @@
 	button {
 		cursor: pointer;
 		i {
-			color: #fff;
+			color: $color;
 			font-size: 40px;
 			padding: 10px 0 6px 0;
 		}
 		&:first-child {
-			border-radius: 10px 0 0 10px;
+			border-radius: $border-radius 0 0 $border-radius;
 		}
-		color: #fff;
-		font-family: 'Orbitron';
+		color: $color;
+		font-family: $font;
 		font-size: 12px;
 		display: inline-grid;
-		background: rgba(0,0,0,0.25);
+		background: $widget_button_background-color;
 		border: none;
-		border-right: 1px solid rgba(255,255,255,0.5);
+		border-right: $widget_border;
 		width: 130px;
 		height: 80px;
 		&.on {
-			border-bottom: 3px solid rgb(122,255,0);
+			border-bottom: 3px solid $color_on;
 		}
 		&.off {
-			border-bottom: 3px solid rgb(255,0,0);
+			border-bottom: 3px solid $color_off;
 		}
 		&:hover {
 			background: transparent;
 		}
 		&.settings,&.schedule,&.camera {
 			border: none;
-			border-left: 1px solid rgba(255,255,255,0.5);
+			border-left: $widget_border;
 			float: right;
 		}
 	}

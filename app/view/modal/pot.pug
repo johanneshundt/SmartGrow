@@ -5,12 +5,12 @@
 .content
     .split_2_1
         .left
-            .shape
-                label(i18n='input.form.label')
+            .formRow
+                label(i18n='input.shape.label')
                 select.select2(name="shape")
                     option(value="Rechteckig") Rechteckig
                     option(value="Rund") Rund
-            .volume
+            .formRow
                 label(i18n='input.volume.label')
                 .inputGroup
                     input(name='volume.amount' type='number' value=pot.volume.amount)

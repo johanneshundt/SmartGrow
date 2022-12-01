@@ -7,14 +7,14 @@ form.close(action='set/plant/'+plant._id method='post')
     .content
         .split_2_1
             .left
-                .text
+                .formRow
                     label(i18n='input.text.label')
                     input(type="text" value=plant.text name="text")
-                .strain
+                .formRow
                     label(i18n='input.strain.label')
                     select.select2ajax(name="strain")
                         option(value=plant.strain._id)=plant.strain.name+' ('+plant.strain.breeder.name+')'
-                .feminized
+                .formRow
                     label.checkbox-container
                         span(i18n='input.feminized.label')
                         input(type='checkbox' checked=plant.feminized name="feminized" value="true")

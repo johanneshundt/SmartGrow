@@ -3,23 +3,27 @@
     .close
         i.fa-duotone.fa-times
 .content
-    h4 Benutzer
-        ul
-            li Sprache
-    h4 Anbauplan
-        ul
-            li Plan
-            li neu
-            li bearbeiten
-    h4 Layout
-        ul
-            li Layout
-            li neu
-            li bearbeiten
-    h4 Widgets
-        ul
-            li bearbeiten
+    h2(i18n='user')
+    .formRow
+        label(i18n='input.language.label')
+        select.select2(name="language")
+            option(value="de") Deutsch
+            option(value="en") English
+    .formRow
+        label(i18n='input.theme.label')
+        select.select2(name="theme")
+            option(value="dark" i18n='input.theme.dark')
+            option(value="light" i18n='input.theme.light')
 .footer
+    button.cut(type="button" data-modal='settings/schedule' data-reopen-url="settings")
+        span(i18n='button.schedule.label')
+        i.fa-duotone.fa-clipboard-list-check
+    button.cut(type="button" data-modal='settings/layout' data-reopen-url="settings")
+        span(i18n='button.layout.label')
+        i.fa-duotone.fa-boxes-stacked
+    button.cut(type="button" data-modal='settings/widgets' data-reopen-url="settings")
+        span(i18n='button.widgets.label')
+        i.fa-duotone.fa-puzzle
     button.save(type="submit")
         span(i18n='button.save.label')
         i.fa-duotone.fa-floppy-disk

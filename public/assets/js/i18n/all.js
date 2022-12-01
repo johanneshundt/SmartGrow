@@ -3,8 +3,30 @@ export const de = {
 		camera: {
 			title: 'Kameras',
 		},
-		schedule: {
+		'settings/schedule': {
 			title: 'Anbauplan',
+			button: {
+				abort: {
+					label:'Abbrechen'
+				},
+				save: {
+					label:'Speichern'
+				},
+			}
+		},
+		'settings/layout': {
+			title: 'Layout',
+			button: {
+				abort: {
+					label:'Abbrechen'
+				},
+				save: {
+					label:'Speichern'
+				},
+			}
+		},
+		'settings/widgets': {
+			title: 'Widgets',
 			button: {
 				abort: {
 					label:'Abbrechen'
@@ -16,7 +38,27 @@ export const de = {
 		},
 		settings: {
 			title: 'Einstellungen',
+			user:'Benutzer',
+			input: {
+				language: {
+					label:'Sprache'
+				},
+				theme: {
+					label:'Theme',
+					dark: 'Dunkel',
+					light: 'Hell'
+				},
+			},
 			button: {
+				layout: {
+					label:'Layout'
+				},
+				schedule: {
+					label:'Anbauplan'
+				},
+				widgets: {
+					label:'Widgets'
+				},
 				abort: {
 					label:'Abbrechen'
 				},
@@ -28,7 +70,7 @@ export const de = {
 		pot: {
 			title: 'Topf',
 			input: {
-				form: {
+				shape: {
 					label:'Form'
 				},
 				volume: {
@@ -223,8 +265,30 @@ export const en = {
 		camera: {
 			title: 'Cameras',
 		},
-		schedule: {
+		'settings/schedule': {
 			title: 'Schedule',
+			button: {
+				abort: {
+					label:'Abort'
+				},
+				save: {
+					label:'Save'
+				},
+			}
+		},
+		'settings/layout': {
+			title: 'Layout',
+			button: {
+				abort: {
+					label:'Abort'
+				},
+				save: {
+					label:'Save'
+				},
+			}
+		},
+		'settings/widgets': {
+			title: 'Widgets',
 			button: {
 				abort: {
 					label:'Abort'
@@ -237,6 +301,15 @@ export const en = {
 		settings: {
 			title: 'Settings',
 			button: {
+				layout: {
+					label:'Layout'
+				},
+				schedule: {
+					label:'Schedule'
+				},
+				widgets: {
+					label:'Widgets'
+				},
 				abort: {
 					label:'Abort'
 				},
@@ -248,7 +321,7 @@ export const en = {
 		pot: {
 			title: 'Pot',
 			input: {
-				form: {
+				shape: {
 					label:'Shape'
 				},
 				volume: {
