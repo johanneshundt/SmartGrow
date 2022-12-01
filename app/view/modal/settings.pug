@@ -10,6 +10,16 @@
             option(value="de") Deutsch
             option(value="en") English
     .formRow
+        label(i18n='input.background.label')
+        select.select2(name="background")
+            option(value="dark" i18n='input.background.dark')
+            option(value="light" i18n='input.background.light')
+            option(value="green" i18n='input.background.green')
+            option(value="blue" i18n='input.background.blue')
+            option(value="red" i18n='input.background.red')
+            option(value="orange" i18n='input.background.orange')
+            option(value="purple" i18n='input.background.purple')
+    .formRow
         label(i18n='input.theme.label')
         select.select2(name="theme")
             option(value="dark" i18n='input.theme.dark')

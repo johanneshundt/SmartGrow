@@ -1,12 +1,12 @@
 modal {
-	color: #fff;
+	color: $color;
 	position: absolute;
 	z-index: 10;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: rgba(0,0,0,0.5);
+	background: $modal_background-color;
 	backdrop-filter: blur(15px);
 	display: grid;
 	grid-template-columns: 1fr;
@@ -32,7 +32,7 @@ modal {
 			font-size: 50px;
 			font-weight: 600;
 			padding: 15px;
-			border-bottom: 1px solid rgba(255,255,255,0.25);
+			border-bottom: $modal_border;
 			small {
 				padding-left: 20px;
 				font-size: 25px;
@@ -40,13 +40,17 @@ modal {
 		}
 		.close {
 			grid-area: close;
-			border-bottom: 1px solid rgba(255,255,255,0.25);
+			border-bottom: $modal_border;
 			font-size: 50px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border-left: 1px solid rgba(255,255,255,0.25);
+			border-left: $modal_border;
 			cursor: pointer;
+			background-color: $modal_button_background-color;
+			&:hover {
+				background-color: $modal_button_background-hover-color;
+			}
 		}
 	}
 	.content {
@@ -87,7 +91,7 @@ modal {
 	}
 	.footer {
 		grid-area: footer;
-		border-top: 1px solid rgba(255,255,255,0.25);
+		border-top: $modal_border;
 		button {
 			float: left;
 			display: flex;
@@ -97,18 +101,21 @@ modal {
 			height: 100%;
 			padding: 10px 50px;
 			border: none;
-			border-right: 1px solid rgba(255, 255, 255, 0.25);
+			border-right: $modal_border;
 			cursor: pointer;
-			color: #fff;
-			background-color: transparent;
-			font-family: 'Orbitron', sans-serif;
+			color: $color;
+			background-color: $modal_button_background-color;
+			font-family: $font;
+			&:hover {
+				background-color: $modal_button_background-hover-color;
+			}
 			i {
 				font-size: 40px;
 			}
 			&.save, &.close {
 				float: right;
 				border-right: none;
-				border-left: 1px solid rgba(255,255,255,0.25);
+				border-left: $modal_border;
 			}
 		}
 	}
@@ -154,8 +161,8 @@ modal {
 			height: unset;
 			width: 33.33%;
 			border: none;
-			border-left: 1px solid rgba(255, 255, 255, 0.25);
-			border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+			border-left: $modal_border;
+			border-bottom: $modal_border;
 			float: unset;
 		}
 	}

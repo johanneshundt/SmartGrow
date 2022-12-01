@@ -4,7 +4,7 @@ $invertColor:#000;
 
 //main
 $font: 'Orbitron', sans-serif;
-$background_image: '/assets/media/background/bg.jpg';
+$background_image: '/assets/media/background/green.jpg';
 
 //border
 $border-radius: 10px;
@@ -22,9 +22,17 @@ $color_off: rgb(255,0,0);
 $color_active: darken($fontBaseColor, 50%);
 $bg_active: lighten($color_active,100%);
 
+//modal
+$modal_background-color:rgba($invertColor,0.5);
+$modal_border-color:rgba($baseColor,0.25);
+$modal_border: 1px solid $modal_border-color;
+$modal_button_background-color: transparent;
+$modal_button_background-hover-color: rgba($baseColor,0.25);
+
+
 //widgets
-$widget_background-color: rgba($baseColor,0.25);
-$widget_border-color: rgba($baseColor,0.5);
+$widget_background-color: rgba($baseColor,0.15);
+$widget_border-color: rgba($baseColor,0.25);
 $widget_border: 1px solid $widget_border-color;
 //widget button
 $widget_button_background-color:rgba($invertColor,0.25);

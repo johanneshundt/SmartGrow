@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
 body {
   font-family: "Orbitron", sans-serif;
-  background-image: url("/assets/media/background/bg.jpg");
+  background-image: url("/assets/media/background/green.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; }
@@ -192,8 +192,8 @@ form {
   grid-template-areas: "temperature_widget layout_widget layout_widget light_widget time_widget" "humidity_widget layout_widget layout_widget water_widget fertilizer_widget" "stadium_widget parameters_widget parameters_widget parameters_widget schedule_widget" "buttons_widget buttons_widget buttons_widget buttons_widget buttons_widget"; }
   .container .widgets .widget {
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
     border-radius: 10px;
     padding: 20px;
@@ -229,7 +229,7 @@ form {
       display: inline-grid;
       background: rgba(0, 0, 0, 0.25);
       border: none;
-      border-right: 1px solid rgba(255, 255, 255, 0.5);
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
       width: 130px;
       height: 80px; }
       .container .widgets .buttons_widget button i {
@@ -246,7 +246,7 @@ form {
         background: transparent; }
       .container .widgets .buttons_widget button.settings, .container .widgets .buttons_widget button.schedule, .container .widgets .buttons_widget button.camera {
         border: none;
-        border-left: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.25);
         float: right; }
   .container .widgets .fertilizer_widget {
     grid-area: fertilizer_widget; }
@@ -440,8 +440,8 @@ form {
       border-radius: 0; }
       .container.mobile .widgets .buttons_widget button.settings, .container.mobile .widgets .buttons_widget button.schedule, .container.mobile .widgets .buttons_widget button.camera {
         border: none;
-        border-right: 1px solid rgba(255, 255, 255, 0.5);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+        border-right: 1px solid rgba(255, 255, 255, 0.25);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
 
 modal {
   color: #fff;
@@ -485,7 +485,10 @@ modal {
       align-items: center;
       justify-content: center;
       border-left: 1px solid rgba(255, 255, 255, 0.25);
-      cursor: pointer; }
+      cursor: pointer;
+      background-color: transparent; }
+      modal .head .close:hover {
+        background-color: rgba(255, 255, 255, 0.25); }
   modal .content {
     overflow: hidden;
     grid-area: content;
@@ -530,7 +533,9 @@ modal {
       cursor: pointer;
       color: #fff;
       background-color: transparent;
-      font-family: 'Orbitron', sans-serif; }
+      font-family: "Orbitron", sans-serif; }
+      modal .footer button:hover {
+        background-color: rgba(255, 255, 255, 0.25); }
       modal .footer button i {
         font-size: 40px; }
       modal .footer button.save, modal .footer button.close {

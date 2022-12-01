@@ -48,6 +48,16 @@ export const de = {
 					dark: 'Dunkel',
 					light: 'Hell'
 				},
+				background: {
+					label:'Hintergrund',
+					dark: 'Dunkel',
+					light: 'Hell',
+					green: 'Grün',
+					blue: 'Blau',
+					red:'Rot',
+					orange:'Orange',
+					purple:'Lila'
+				},
 			},
 			button: {
 				layout: {
