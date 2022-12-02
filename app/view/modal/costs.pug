@@ -27,20 +27,20 @@ include ../includes/mixins
                         if name !== 'sum' && value
                             .item
                                 span(i18n=name)
-                                span=euro(value)
+                                span!=euro(value)
                 td
                     each value,name in phase.consumables
                         if name !== 'sum' && value
                             .item
                                 span(i18n=name)
-                                span=euro(value)
+                                span!=euro(value)
                 td
                     each value,name in phase.wearing
                         if name !== 'sum' && value
                             .item
                                 span(i18n=name)
-                                span=euro(value)
-                th=euro(phase.sum)
+                                span!=euro(value)
+                th!=euro(phase.sum)
             -
                 overallSum += (phase.electricity.sum + phase.consumables.sum + phase.wearing.sum)
                 electricitySum += phase.electricity.sum;
@@ -49,10 +49,10 @@ include ../includes/mixins
         tr
             td.noBorder
             td.noBorder
-            th=euro(electricitySum)
-            th=euro(consumablesSum)
-            th=euro(wearingSum)
-            th=euro(overallSum)
+            th!=euro(electricitySum)
+            th!=euro(consumablesSum)
+            th!=euro(wearingSum)
+            th!=euro(overallSum)
 .footer
     button.close(type="button")
         span(i18n='button.abort.label')

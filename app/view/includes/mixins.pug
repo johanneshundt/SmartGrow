@@ -9,10 +9,10 @@
         number = Math.round(number*(100))/(100)
         let split = number.toString().split('.')
         if(!split[1]){
-            return number+'.00 €'
+            return '&nbsp;'+number+'.00&nbsp;€'
         }
         else if(split[1].length < 2){
-            return number+'0 €'
+            return '&nbsp;'+number+'0&nbsp;€'
         }
-        return number+' €'
+        return '&nbsp;'+number+'&nbsp;€'
     }
