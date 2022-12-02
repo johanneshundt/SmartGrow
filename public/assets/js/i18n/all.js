@@ -11,6 +11,7 @@ export const de = {
 				}
 			},
 			stadium:'Phase',
+			duration:'Dauer',
 			electricity:'Strom',
 			consumables:'Verbrauchsmaterial',
 			wearing:'Verschleißteile',

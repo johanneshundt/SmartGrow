@@ -181,6 +181,9 @@ form {
   padding: 8px;
   margin-right: 0 !important; }
 
+.noBorder {
+  border: none !important; }
+
 .container .widgets {
   display: grid;
   grid-template-columns: 1fr 300px 300px 1fr 1fr;

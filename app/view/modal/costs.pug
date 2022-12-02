@@ -8,6 +8,7 @@ include ../includes/mixins
     table
         tr
             th(i18n='stadium')
+            th(i18n='duration')
             th(i18n='electricity')
             th(i18n='consumables')
             th(i18n='wearing')
@@ -20,6 +21,7 @@ include ../includes/mixins
         each phase in costs
             tr.list
                 th(rowspan=2)=phase.stadium
+                th(rowspan=2)=phase.duration
                 td
                     each value,name in phase.electricity
                         if name !== 'sum' && value
@@ -51,7 +53,8 @@ include ../includes/mixins
                     consumablesSum += phase.consumables.sum;
                     wearingSum += phase.wearing.sum;
         tr
-            th
+            td.noBorder
+            td.noBorder
             th=euro(electricitySum)
             th=euro(consumablesSum)
             th=euro(wearingSum)

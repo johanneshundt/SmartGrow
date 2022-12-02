@@ -354,6 +354,7 @@ exports.calculateCosts = async function(settings,stadium,newSoil=false,newSeeds=
 	//TODO: add fan,exhaust,filter,heater
 	let costs = {
 		stadium: stadium.name,
+		duration: stadium.duration,
 		electricity: {
 			light: 0, 				// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((12h*49*400W)/1000)*0.325€/kWh
 			//fan: 11.466, 			// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*30W)/1000)*0.325€/kWh
