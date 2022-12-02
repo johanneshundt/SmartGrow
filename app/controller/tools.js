@@ -349,16 +349,16 @@ exports.calculateOverallCosts = async function(settings){
 	return costs
 }
 
-//TODO: fan,exhaust,filter,heater
+//TODO: heater
 exports.calculateCosts = async function(settings,stadium,newSoil=false,newSeeds=false){
-	//TODO: add fan,exhaust,filter,heater
+	//TODO: add heater
 	let costs = {
 		stadium: stadium.name,
 		duration: stadium.duration,
 		electricity: {
 			light: 0, 				// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((12h*49*400W)/1000)*0.325€/kWh
-			//fan: 11.466, 			// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*30W)/1000)*0.325€/kWh
-			//exhaust: 14.1414,		// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*37W)/1000)*0.325€/kWh
+			fan: 0, 				// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*30W)/1000)*0.325€/kWh
+			exhaust: 0,				// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*37W)/1000)*0.325€/kWh
 			//heater: 63.7,			// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((2h*49*2.000W)/1000)*0.325€/kWh
 			sum: 0,
 		},
@@ -370,9 +370,9 @@ exports.calculateCosts = async function(settings,stadium,newSoil=false,newSeeds=
 			sum: 0,
 		},
 		wearing: {
-			//fan:1.3417,			// (itemPrice/usableTime)*totalOnTime 				-> e.g. (19.99€/17.520h)*(24h*49)
-			//filter:6.2330,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (46.43€/8.760h)*(24h*49)
-			//exhaust:3.3796,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (50.35€/17.520h)*(24h*49)
+			fan:0,					// (itemPrice/usableTime)*totalOnTime 				-> e.g. (19.99€/17.520h)*(24h*49)
+			filter:0,				// (itemPrice/usableTime)*totalOnTime 				-> e.g. (46.43€/8.760h)*(24h*49)
+			exhaust:0,				// (itemPrice/usableTime)*totalOnTime 				-> e.g. (50.35€/17.520h)*(24h*49)
 			//heater:0.1113,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (19.90€/17.520h)*(2h*49)
 			light:0,				// (itemPrice/usableTime)*totalOnTime 				-> e.g. (15.90€/17.520h)*(12h*49)
 			pot:0,					// (itemPrice/usableTime)*totalOnTime*itemAmount	-> e.g. (2.95€/17.520h)*(24h*49)*9
@@ -395,6 +395,27 @@ exports.calculateCosts = async function(settings,stadium,newSoil=false,newSeeds=
 			}
 			waterTime = (60/(flowAmount/stadium.water.amount)*60) / 3600*(24/stadium.water.interval)
 		}
+	}
+	//FAN(S)
+	if(stadium.fan){
+		for(let fan of stadium.fan){
+			costs.electricity.fan += ((24*days*fan.power)/1000)*settings.electricityPrice
+			costs.wearing.fan += (fan.accounting.cost/fan.accounting.usageTime)*(24*days)
+		}
+		costs.electricity.sum += costs.electricity.fan;
+		costs.wearing.sum += costs.wearing.fan;
+	}
+	//EXHAUST
+	if(stadium.exhaust){
+		costs.electricity.exhaust += ((24*days*stadium.exhaust.power)/1000)*settings.electricityPrice
+		costs.wearing.exhaust += (stadium.exhaust.accounting.cost/stadium.exhaust.accounting.usageTime)*(24*days)
+		costs.electricity.sum += costs.electricity.exhaust;
+		costs.wearing.sum += costs.wearing.exhaust;
+	}
+	//FILTER
+	if(stadium.filter){
+		costs.wearing.filter += (stadium.filter.accounting.cost/stadium.filter.accounting.usageTime)*(24*days)
+		costs.wearing.sum += costs.wearing.filter;
 	}
 	//CONSUMABLES: FERTILIZER
 	if(stadium.fertilizer?.source && stadium.fertilizer?.amount && waterAmount){

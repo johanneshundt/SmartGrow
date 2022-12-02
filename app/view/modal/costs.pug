@@ -20,8 +20,8 @@ include ../includes/mixins
             wearingSum = 0;
         each phase in costs
             tr.list
-                th(rowspan=2)=phase.stadium
-                th(rowspan=2)=phase.duration
+                th=phase.stadium
+                th=phase.duration
                 td
                     each value,name in phase.electricity
                         if name !== 'sum' && value
@@ -41,17 +41,11 @@ include ../includes/mixins
                                 span(i18n=name)
                                 span=euro(value)
                 td
-            //sums
-            tr.sum
-                th=euro(phase.electricity.sum)
-                th=euro(phase.consumables.sum)
-                th=euro(phase.wearing.sum)
-                th=euro(phase.electricity.sum+phase.consumables.sum+phase.wearing.sum)
-                -
-                    overallSum += (phase.electricity.sum+phase.consumables.sum+phase.wearing.sum)
-                    electricitySum += phase.electricity.sum;
-                    consumablesSum += phase.consumables.sum;
-                    wearingSum += phase.wearing.sum;
+            -
+                overallSum += (phase.electricity.sum + phase.consumables.sum + phase.wearing.sum)
+                electricitySum += phase.electricity.sum;
+                consumablesSum += phase.consumables.sum;
+                wearingSum += phase.wearing.sum;
         tr
             td.noBorder
             td.noBorder

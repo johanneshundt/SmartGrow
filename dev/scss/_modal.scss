@@ -187,5 +187,10 @@ modal .content.costs {
 		th {
 			background-color: $table_th_background-color;
 		}
+		tr:last-child {
+			th {
+				padding: 10px 0;
+			}
+		}
 	}
 }

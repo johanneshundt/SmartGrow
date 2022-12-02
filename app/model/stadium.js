@@ -11,6 +11,10 @@ let StadiumSchema = new Schema({
 		min:Number,
 		max:Number
 	},
+	place:{ type: Schema.Types.ObjectId, ref: 'Place' },
+	exhaust:{ type: Schema.Types.ObjectId, ref: 'Exhaust' },
+	filter:{ type: Schema.Types.ObjectId, ref: 'Filter' },
+	fan:[{ type: Schema.Types.ObjectId, ref: 'Fan' }],
 	light: {
 		schedule: {
 			on: {
