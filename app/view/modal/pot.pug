@@ -14,12 +14,10 @@
                 label(i18n='input.volume.label')
                 .inputGroup
                     input(name='volume.amount' type='number' value=pot.volume.amount)
-                    select(name='volume.amount')
-                        option(selected=pot.volume.unit==='Liter') Liter
-                        option(selected=pot.volume.unit==='ml') ml
-                        option(selected=pot.volume.unit==='m³') m³
-                        option(selected=pot.volume.unit==='cm³') cm³
-                        option(selected=pot.volume.unit==='dm³') dm³
+                    span Liter
+            .formRow
+                label Bewässerung
+                 | ...
 .footer
     button.save(type="submit")
         span(i18n='button.save.label')

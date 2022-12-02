@@ -16,6 +16,9 @@ exports.costs = async function(req,res){
 exports.layout = async function(req,res){
 	res.renderHtml('modal/layout', {})
 }
+exports.stadium = async function(req,res){
+	res.renderHtml('modal/stadium', {})
+}
 exports.widgets = async function(req,res){
 	res.renderHtml('modal/widgets', {})
 }
