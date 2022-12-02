@@ -5,3 +5,14 @@
         }
         return number;
     }
+    function euro(number){
+        number = Math.round(number*(100))/(100)
+        let split = number.toString().split('.')
+        if(!split[1]){
+            return number+'.00 €'
+        }
+        else if(split[1].length < 2){
+            return number+'0 €'
+        }
+        return number+' €'
+    }

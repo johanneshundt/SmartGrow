@@ -12,7 +12,8 @@ let FertilizerSchema = new Schema({
 	dilution: Number,
 	package: {
 		amount:Number,
-		unit:String
+		unit:String,
+		costs:Number,
 	},
 	url: String
 },{timestamps:true});

@@ -74,7 +74,7 @@ exports.calculatePercentage = function(start,end,current){
 	let progress = current-start
 	return Math.round(progress/(distance/100)*100)/100;
 }
-exports.calculateDuration = function(start,end){
+exports.calculateDuration = function(start,end,asHours=false){
 	let startDate = new Date().setHours(start.hour,start.minute||0,start.second||0,0)
 	let endDate = new Date().setHours(end.hour,end.minute||0,end.second||0,0)
 	if(endDate <= startDate){
@@ -86,6 +86,9 @@ exports.calculateDuration = function(start,end){
 	let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 	let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	if(asHours){
+		return Math.floor(distance / (1000 * 60 * 60));
+	}
 	// If the count down is finished, write some text
 	let text = ``;
 	if(days && days > 1){
@@ -332,47 +335,114 @@ exports.collectData = async function(){
 }
 
 
-exports.calculateOverallCosts = async function(schedule){
-	//TODO:
-	//	costs = [];
-	//	lastSoilId = false;
-	//	for(let stadium of schedule.stadium)
-	//		costs.push(await calculateCosts(stadium,stadium.soil._id === lastSoilId)),
-	//		lastSoilId = stadium.soil._id;
-	//	return costs
+exports.calculateOverallCosts = async function(settings){
+	settings = await model.settings.getSettings('Standard');
+	let costs = [];
+	let lastSoil = false;
+	let newSeeds = true;
+	for(let stadium of settings.schedule.stadium) {
+		let newSoil = stadium.soil?._id && stadium.soil._id !== lastSoil;
+		lastSoil = stadium.soil?._id
+		costs.push(await exports.calculateCosts(settings,stadium, newSoil, newSeeds))
+		newSeeds = false; //only new seeds for first stadium
+	}
+	return costs
 }
 
-//TODO: do the calculations
-exports.calculateCosts = async function(stadium,newSoil=false){
-	//TODO: add heater
-	//TODO: add buyingPrice to fan,exhaust,light,heater
-	//TODO: add usableTime to fan,exhaust,light,heater
-	//TODO: add water costs to settings
-	//TODO: add costs to soil,fertilizer
+//TODO: fan,exhaust,filter,heater
+exports.calculateCosts = async function(settings,stadium,newSoil=false,newSeeds=false){
+	//TODO: add fan,exhaust,filter,heater
 	let costs = {
 		stadium: stadium.name,
 		electricity: {
-			light: 76.44, 		// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((12h*49*400W)/1000)*0.325€/kWh
-			fan: 11.466, 		// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*30W)/1000)*0.325€/kWh
-			exhaust: 14.1414,	// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*37W)/1000)*0.325€/kWh
-			//heater: 63.7,		// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((2h*49*2.000W)/1000)*0.325€/kWh
-			sum: 102.0474,
+			light: 0, 				// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((12h*49*400W)/1000)*0.325€/kWh
+			//fan: 11.466, 			// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*30W)/1000)*0.325€/kWh
+			//exhaust: 14.1414,		// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((24h*49*37W)/1000)*0.325€/kWh
+			//heater: 63.7,			// ((totalOnTime*power)/1000)*electricityPrice 		-> e.g. ((2h*49*2.000W)/1000)*0.325€/kWh
+			sum: 0,
 		},
 		consumables: {
-			water: 0.441,		// totalAmount*waterPrice							-> e.g. 4.5l*49*0.002€/l
-			soil: 52.668,		// (potVolume*plants)*(soilPrice/packageAmount)		-> e.g. (14l*9)*(20.90€/50l)
-			fertilizer: 4.8069,	// totalAmount*(fertilizerPrice/packageAmount)		-> e.g. (9ml*49)*(10.90€/1000ml)
-			sum: 57.9159,
+			water: 0,				// totalAmount*waterPrice							-> e.g. 4.5l*49*0.002€/l
+			soil: 0,				// (potVolume*plants)*(soilPrice/packageAmount)		-> e.g. (14l*9)*(20.90€/50l)
+			fertilizer: 0,			// totalAmount*(fertilizerPrice/packageAmount)		-> e.g. (9ml*49)*(10.90€/1000ml)
+			seeds: 0,				// totalAmount*seedPrice							-> e.g. (9*9.90€)
+			sum: 0,
 		},
 		wearing: {
-			fan:1.3417,			// (itemPrice/usableTime)*totalOnTime 				-> e.g. (19.99€/17.520h)*(24h*49)
-			filter:6.2330,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (46.43€/8.760h)*(24h*49)
-			exhaust:3.3796,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (50.35€/17.520h)*(24h*49)
-			light:0.5336,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (15.90€/17.520h)*(12h*49)
+			//fan:1.3417,			// (itemPrice/usableTime)*totalOnTime 				-> e.g. (19.99€/17.520h)*(24h*49)
+			//filter:6.2330,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (46.43€/8.760h)*(24h*49)
+			//exhaust:3.3796,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (50.35€/17.520h)*(24h*49)
 			//heater:0.1113,		// (itemPrice/usableTime)*totalOnTime 				-> e.g. (19.90€/17.520h)*(2h*49)
-			sum: 11.4879,
+			light:0,				// (itemPrice/usableTime)*totalOnTime 				-> e.g. (15.90€/17.520h)*(12h*49)
+			pot:0,					// (itemPrice/usableTime)*totalOnTime*itemAmount	-> e.g. (2.95€/17.520h)*(24h*49)*9
+			waterUtilities:0,		// (itemPrice/usableTime)*totalOnTime*itemAmount	-> e.g. (1.079€/17.520h)*(0.1666h*49)*27
+			sum: 0
 		},
-		sum: 171.4512
+		sum: 0
 	}
+	let plantAmount = settings.layout.plants.length
+	let days = stadium.duration;
+	//calculate watering data
+	let waterTime = 0;
+	let waterAmount = 0;
+	if(stadium.water){
+		waterAmount = (stadium.water?.amount||0)*plantAmount*(24/stadium.water.interval||12);
+		if(stadium.pot?.waterUtilities){
+			let flowAmount = 0;
+			for(let utility of stadium.pot?.waterUtilities){
+				flowAmount += utility.flow
+			}
+			waterTime = (60/(flowAmount/stadium.water.amount)*60) / 3600*(24/stadium.water.interval)
+		}
+	}
+	//CONSUMABLES: FERTILIZER
+	if(stadium.fertilizer?.source && stadium.fertilizer?.amount && waterAmount){
+		let usagePerDay = stadium.fertilizer.amount*waterAmount*(stadium.water.interval/24)*(24/stadium.fertilizer.schedule.interval)
+		costs.consumables.fertilizer = usagePerDay*(stadium.fertilizer.source.package.costs/(stadium.fertilizer.source.package.amount*1000))*days;
+		costs.consumables.sum += costs.consumables.fertilizer;
+	}
+	//CONSUMABLES: SEEDS
+	if(newSeeds){
+		for (let plant of settings.layout.plants){
+			if(plant.costs){
+				costs.consumables.seeds += plant.costs;
+			}
+		}
+		costs.consumables.sum += costs.consumables.seeds;
+	}
+	//CONSUMABLES: SOIL
+	if(newSoil && stadium.soil && stadium.pot.volume.amount){
+		costs.consumables.soil = (stadium.pot.volume.amount*plantAmount)*(stadium.soil.package.costs/stadium.soil.package.amount);
+		costs.consumables.sum += costs.consumables.soil;
+	}
+	//CONSUMABLES: WATER
+	costs.consumables.water = waterAmount*settings.waterPrice*days;
+	costs.consumables.sum += costs.consumables.water;
+	//WEARING: POT +  WATER UTILITIES
+	if(stadium.pot?.accounting.cost){
+		costs.wearing.pot = (stadium.pot.accounting.cost/stadium.pot.accounting.usageTime)*(24*days)*plantAmount
+		//WEARING: WATER UTILITIES
+		for(let utility of stadium.pot.waterUtilities){
+			if(utility.accounting.cost){
+				costs.wearing.waterUtilities += (utility.accounting.cost/utility.accounting.usageTime)*(waterTime*days)*plantAmount
+			}
+		}
+		costs.wearing.sum += costs.wearing.waterUtilities
+		costs.wearing.sum += costs.wearing.pot
+	}
+	//LIGHT
+	if(stadium.light?.source){
+		let usagePerDay = exports.calculateDuration(stadium.light.schedule.on,stadium.light.schedule.off,true);
+		//electricity
+		costs.electricity.light = ((usagePerDay*days*stadium.light.source.power)/1000)*settings.electricityPrice;
+		costs.electricity.sum += costs.electricity.light;
+		//wearing
+		if(stadium.light.source?.accounting.cost){
+			costs.wearing.light = (stadium.light.source.accounting.cost/stadium.light.source.accounting.usageTime)*(usagePerDay*days)
+			costs.wearing.sum += costs.wearing.light
+		}
+	}
+	costs.sum = costs.electricity.sum+costs.consumables.sum+costs.wearing.sum
+	//console.log(costs)
 	return costs;
 }

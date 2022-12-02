@@ -599,6 +599,20 @@ modal {
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
       float: unset; }
 
+modal .content.costs table {
+  width: 100%;
+  border-collapse: collapse; }
+  modal .content.costs table th, modal .content.costs table td {
+    border: 1px solid rgba(255, 255, 255, 0.5); }
+    modal .content.costs table th .item, modal .content.costs table td .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 15px; }
+  modal .content.costs table td {
+    vertical-align: bottom; }
+  modal .content.costs table th {
+    background-color: rgba(255, 255, 255, 0.25); }
+
 alert {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(15px);

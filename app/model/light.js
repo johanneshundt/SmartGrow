@@ -8,7 +8,11 @@ let LightSchema = new Schema({
 	lightFlux: Number,
 	socket: String,
 	power: Number,
-	type: String
+	type: String,
+	accounting: {
+		cost:Number,
+		usageTime:Number,
+	},
 },{timestamps:true});
 
 const Light = module.exports = mongoose.model('Light', LightSchema, 'light');

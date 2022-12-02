@@ -1,9 +1,61 @@
+include ../includes/mixins
+
 .head
     .title(i18n='title')
     .close
         i.fa-duotone.fa-times
-.content
-    | KOSTEN...
+.content.costs
+    table
+        tr
+            th(i18n='stadium')
+            th(i18n='electricity')
+            th(i18n='consumables')
+            th(i18n='wearing')
+            th(i18n='sum')
+        -
+            overallSum = 0;
+            electricitySum = 0;
+            consumablesSum = 0;
+            wearingSum = 0;
+        each phase in costs
+            tr.list
+                th(rowspan=2)=phase.stadium
+                td
+                    each value,name in phase.electricity
+                        if name !== 'sum' && value
+                            .item
+                                span(i18n=name)
+                                span=euro(value)
+                td
+                    each value,name in phase.consumables
+                        if name !== 'sum' && value
+                            .item
+                                span(i18n=name)
+                                span=euro(value)
+                td
+                    each value,name in phase.wearing
+                        if name !== 'sum' && value
+                            .item
+                                span(i18n=name)
+                                span=euro(value)
+                td
+            //sums
+            tr.sum
+                th=euro(phase.electricity.sum)
+                th=euro(phase.consumables.sum)
+                th=euro(phase.wearing.sum)
+                th=euro(phase.electricity.sum+phase.consumables.sum+phase.wearing.sum)
+                -
+                    overallSum += (phase.electricity.sum+phase.consumables.sum+phase.wearing.sum)
+                    electricitySum += phase.electricity.sum;
+                    consumablesSum += phase.consumables.sum;
+                    wearingSum += phase.wearing.sum;
+        tr
+            th
+            th=euro(electricitySum)
+            th=euro(consumablesSum)
+            th=euro(wearingSum)
+            th=euro(overallSum)
 .footer
     button.close(type="button")
         span(i18n='button.abort.label')

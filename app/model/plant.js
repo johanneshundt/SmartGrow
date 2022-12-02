@@ -5,6 +5,7 @@ let PlantSchema = new Schema({
 	strain: { type: Schema.Types.ObjectId, ref: 'Strain' },
 	feminized:Boolean,
 	text:String,
+	costs:Number,
 	history:[{
 		date:Date,
 		icon:String,

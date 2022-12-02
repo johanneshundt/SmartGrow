@@ -8,7 +8,10 @@ exports.schedule = async function(req,res){
 	res.renderHtml('modal/schedule', {})
 }
 exports.costs = async function(req,res){
-	res.renderHtml('modal/costs', {})
+	let options = {
+		costs: await tools.calculateOverallCosts('Standard')
+	}
+	res.renderHtml('modal/costs', options)
 }
 exports.layout = async function(req,res){
 	res.renderHtml('modal/layout', {})

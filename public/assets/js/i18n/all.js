@@ -9,7 +9,23 @@ export const de = {
 				abort: {
 					label:'Abbrechen'
 				}
-			}
+			},
+			stadium:'Phase',
+			electricity:'Strom',
+			consumables:'Verbrauchsmaterial',
+			wearing:'Verschleißteile',
+			sum: 'Summe',
+			light:'Licht',
+			fan:'Umluft',
+			exhaust:'Abluft',
+			heater:'Heizung',
+			water:'Wasser',
+			soil:'Erde',
+			fertilizer:'Dünger',
+			seeds:'Samen',
+			filter:'Filter',
+			pot:'Topf',
+			waterUtilities:'Bewässerung',
 		},
 		'settings/schedule': {
 			title: 'Anbauplan',

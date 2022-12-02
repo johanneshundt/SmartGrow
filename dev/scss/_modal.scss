@@ -1,3 +1,4 @@
+
 modal {
 	color: $color;
 	position: absolute;
@@ -164,6 +165,27 @@ modal {
 			border-left: $modal_border;
 			border-bottom: $modal_border;
 			float: unset;
+		}
+	}
+}
+
+modal .content.costs {
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		th,td {
+			border: $table_border;
+			.item {
+				display: flex;
+				justify-content: space-between;
+				padding: 0 15px;
+			}
+		}
+		td {
+			vertical-align: bottom;
+		}
+		th {
+			background-color: $table_th_background-color;
 		}
 	}
 }

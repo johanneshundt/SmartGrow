@@ -7,6 +7,7 @@ let SoilSchema = new Schema({
 	package: {
 		amount:Number,
 		unit:String,
+		costs:Number,
 	},
 	fertilized: Boolean,
 	url: String,

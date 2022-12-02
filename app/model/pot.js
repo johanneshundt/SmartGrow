@@ -21,6 +21,10 @@ let PotSchema = new Schema({
 		amount: Number,
 		unit: String
 	},
+	accounting: {
+		cost:Number,
+		usageTime:Number,
+	},
 	waterUtilities:[{ type: Schema.Types.ObjectId, ref: 'WaterUtilities' }]
 },{timestamps:true});
 

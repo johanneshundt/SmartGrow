@@ -46,6 +46,7 @@ $widget_layout_plant_background-hover-color: opacify($widget_layout_plant_backgr
 //table
 $table_border-color: rgba($baseColor,0.5);
 $table_border: 1px solid $table_border-color;
+$table_th_background-color: rgba($baseColor,0.25);
 
 //inputs
 $input_border-color: rgba($baseColor,0.75);

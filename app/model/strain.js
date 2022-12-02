@@ -20,7 +20,7 @@ let StrainSchema = new Schema({
 	urls: {
 		seedfinder:String,
 		breeder:String
-	}
+	},
 },{timestamps:true});
 
 const Strain = module.exports = mongoose.model('Strain', StrainSchema, 'strain');
