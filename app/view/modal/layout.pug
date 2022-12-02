@@ -2,7 +2,7 @@
     .title(i18n='title')
     .close
         i.fa-duotone.fa-times
-.content
+.content.layout
     .formRow
         label(i18n='input.columns.label')
         input(type='number' value=3 min=1 max=20)
@@ -10,95 +10,120 @@
         label(i18n='input.rows.label')
         input(type='number' value=3 min=1 max=20)
     h2(i18n='plants')
-    table(width="100%")
+    table
+        thead
+            tr
+                th Sorte
+                th Züchter
+                th Text
+                th Feminisiert
+                th(colspan=2)
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #1
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #2
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #3
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #4
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #5
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #6
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #7
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #8
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
         tr
-            td Triple G
+            th Triple G
             td Royal Queen Seeds
             td #9
-            td Feminisiert
+            td
+                i.fa-duotone.fa-check
             td
                 button
                     i.fa-duotone.fa-times
+            td
                 button
                     i.fa-duotone.fa-pencil
 .footer

@@ -105,14 +105,21 @@
 		button {
 			float: none;
 			flex-grow: 1;
-			border-radius: 0;
-			border: none;
+			border-radius: 0 !important;
+			border-top: none;
+			border-left: none;
 			border-right: $widget_border;
 			border-bottom: $widget_border;
+			&.on{
+				border-bottom: 3px solid $color_on;
+			}
+			&.off{
+				border-bottom: 3px solid $color_off;
+			}
 		}
 		.center {
 			grid-area: last;
-			padding: 20px;
+			//padding: 20px;
 		}
 	}
 }

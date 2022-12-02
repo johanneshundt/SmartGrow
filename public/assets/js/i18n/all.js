@@ -315,6 +315,10 @@ export const de = {
 		},
 		parameters: {
 			empty:'keine Parameter',
+			place:'Ort',
+			filter:'Filter',
+			exhaust:'Abluft',
+			fans:'Umluft',
 			temperature:'Temperatur',
 			humidity:'Luftfeuchtigkeit',
 			light:'Beleuchtung',

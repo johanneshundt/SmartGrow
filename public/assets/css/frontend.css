@@ -458,13 +458,17 @@ form {
   .container.mobile .widgets .buttons_widget button {
     float: none;
     flex-grow: 1;
-    border-radius: 0;
-    border: none;
+    border-radius: 0 !important;
+    border-top: none;
+    border-left: none;
     border-right: 1px solid rgba(255, 255, 255, 0.25);
     border-bottom: 1px solid rgba(255, 255, 255, 0.25); }
+    .container.mobile .widgets .buttons_widget button.on {
+      border-bottom: 3px solid #7aff00; }
+    .container.mobile .widgets .buttons_widget button.off {
+      border-bottom: 3px solid red; }
   .container.mobile .widgets .buttons_widget .center {
-    grid-area: last;
-    padding: 20px; }
+    grid-area: last; }
 
 modal {
   color: #fff;
@@ -601,6 +605,44 @@ modal {
       border-left: 1px solid rgba(255, 255, 255, 0.25);
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
       float: unset; }
+
+modal .content.layout table {
+  width: 100%;
+  border-collapse: collapse; }
+  modal .content.layout table th, modal .content.layout table td {
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.5); }
+  modal .content.layout table th {
+    background-color: rgba(255, 255, 255, 0.25); }
+  modal .content.layout table td button {
+    width: 100%;
+    height: 40px;
+    min-width: 40px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: #fff;
+    font-size: 25px; }
+  modal .content.layout table thead th {
+    padding: 10px 0; }
+
+modal .content.schedule table {
+  width: 100%;
+  border-collapse: collapse; }
+  modal .content.schedule table th, modal .content.schedule table td {
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.5); }
+  modal .content.schedule table th {
+    background-color: rgba(255, 255, 255, 0.25); }
+  modal .content.schedule table td button {
+    width: 100%;
+    height: 40px;
+    min-width: 40px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: #fff;
+    font-size: 25px; }
+  modal .content.schedule table thead th {
+    padding: 10px 0; }
 
 modal .content.costs table {
   width: 100%;

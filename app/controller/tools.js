@@ -263,6 +263,22 @@ exports.collectData = async function(){
 	}
 	//parameters
 	data.widgets.parameters = {
+		place:{
+			info:stadium.current.place.supplier+' '+stadium.current.place.name,
+			value:stadium.current.place.size.length+'cm x'+stadium.current.place.size.width+'cm x'+stadium.current.place.size.height+'cm'
+		},
+		filter:{
+			info:stadium.current.filter.supplier+' '+stadium.current.filter.name,
+			value:stadium.current.filter.volume+' m³/h'
+		},
+		exhaust:{
+			info:stadium.current.exhaust.supplier+' '+stadium.current.exhaust.name,
+			value:stadium.current.exhaust.volume+' m³/h'
+		},
+		fans:{
+			info:null,
+			value:null
+		},
 		temperature:{
 			info:null,
 			value:stadium.current.temperature.min+'°C - '+stadium.current.temperature.max+'°C'
@@ -292,6 +308,18 @@ exports.collectData = async function(){
 			value:stadium.current.pot.volume.amount+' '+stadium.current.pot.volume.unit
 		}
 	}
+	let fanInfo=[];
+	let fanValue=[];
+	for(let fan of stadium.current.fan){
+		fanInfo.push(fan.supplier+' '+fan.name)
+		fanValue.push(fan.volume+' m³/h')
+		data.widgets.parameters.fans.info = fanInfo.join(' | ')
+		data.widgets.parameters.fans.value = fanValue.join(' | ')
+		//console.log(fan)
+	}
+
+
+
 	//clock
 	data.widgets.clock = {
 		date:now,

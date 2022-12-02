@@ -322,7 +322,15 @@ class Parameters extends Widget {
 	constructor() {
 		super($('.parameters_widget'),'widgets.parameters');
 	}
-	update(temperature,humidity,light,water,fertilizer,pot,soil) {
+	update(place,filter,exhaust,fans,temperature,humidity,light,water,fertilizer,pot,soil) {
+		this.element.find('.placeInfo').html(place.info)
+		this.element.find('.placeValue').html(place.value)
+		this.element.find('.filterInfo').html(filter.info)
+		this.element.find('.filterValue').html(filter.value)
+		this.element.find('.exhaustInfo').html(exhaust.info)
+		this.element.find('.exhaustValue').html(exhaust.value)
+		this.element.find('.fansInfo').html(fans.info)
+		this.element.find('.fansValue').html(fans.value)
 		this.element.find('.temperatureInfo').html(temperature.info)
 		this.element.find('.temperatureValue').html(temperature.value)
 		this.element.find('.humidityInfo').html(humidity.info)

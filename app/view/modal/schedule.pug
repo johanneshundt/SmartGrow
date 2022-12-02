@@ -2,7 +2,7 @@
     .title(i18n='title')
     .close
         i.fa-duotone.fa-times
-.content
+.content.schedule
     .formRow
         label Name
         input(type="text" name="name")
@@ -10,11 +10,13 @@
         label Startdatum
         input(type="date" name="start")
     h2 Phasen
-    table(width="100%")
+    table
         thead
             tr
                 th Phase
                 th Dauer
+                th Ort
+                th Medium
                 th Temperatur
                 th Luftfeuchtigkeit
                 th
@@ -23,10 +25,19 @@
                     i.fa-duotone.fa-faucet
                 th
                     i.fa-duotone.fa-flask
+                th
+                    i.fa-duotone.fa-sync
+                th
+                    i.fa-duotone.fa-fan
+                th
+                    i.fa-duotone.fa-filter
+                th(colspan=2)
         tbody
             tr
                 th Aussat
                 td 0
+                td DiamondBox Silver Line SL60
+                td Plagron Lightmix
                 td 23°C - 26°C
                 td 50% - 70%
                 td
@@ -35,9 +46,23 @@
                     i.fa-duotone.fa-times
                 td
                     i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-pencil
             tr
                 th Keimung
                 td 7
+                td DiamondBox Silver Line SL60
+                td Plagron Lightmix
                 td 23°C - 26°C
                 td 50% - 70%
                 td
@@ -46,9 +71,23 @@
                     i.fa-duotone.fa-check
                 td
                     i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-pencil
             tr
                 th Wachstum
                 td 7
+                td Secret Jardin Hydro Shoot 100
+                td Plagron Growmix
                 td 20°C - 30°C
                 td 40% - 70%
                 td
@@ -57,9 +96,23 @@
                     i.fa-duotone.fa-check
                 td
                     i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    button
+                        i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-pencil
             tr
                 th Blüte
                 td 49
+                td Secret Jardin Hydro Shoot 100
+                td Plagron Growmix
                 td 18°C - 26°C
                 td 40% - 60%
                 td
@@ -68,9 +121,23 @@
                     i.fa-duotone.fa-check
                 td
                     i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    button
+                        i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-pencil
             tr
                 th Blüte Ende
                 td 14
+                td Secret Jardin Hydro Shoot 100
+                td Plagron Growmix
                 td 18°C - 26°C
                 td 30% - 50%
                 td
@@ -79,9 +146,23 @@
                     i.fa-duotone.fa-check
                 td
                     i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    button
+                        i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-pencil
             tr
                 th Ernte
                 td 0
+                td Secret Jardin Hydro Shoot 100
+                td Plagron Growmix
                 td
                 td
                 td
@@ -90,9 +171,23 @@
                     i.fa-duotone.fa-times
                 td
                     i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-pencil
             tr
                 th Trocknung
                 td 7
+                td Secret Jardin Hydro Shoot 100
+                td Plagron Growmix
                 td 17°C - 22°C
                 td 30% - 50%
                 td
@@ -101,6 +196,18 @@
                     i.fa-duotone.fa-times
                 td
                     i.fa-duotone.fa-times
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    i.fa-duotone.fa-check
+                td
+                    button
+                        i.fa-duotone.fa-times
+                td
+                    button
+                        i.fa-duotone.fa-pencil
 .footer
     button.save(type="submit")
         span(i18n='button.save.label')

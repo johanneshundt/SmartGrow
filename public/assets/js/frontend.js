@@ -108,7 +108,7 @@ class SmartGrow {
 			if(Widgets.parameters && Widgets.parameters.isInitialized){
 				if(data.widgets.parameters){
 					Widgets.parameters.empty(false)
-					Widgets.parameters.update(data.widgets.parameters.temperature, data.widgets.parameters.humidity, data.widgets.light?data.widgets.parameters.light:false, data.widgets.water?data.widgets.parameters.water:false, data.widgets.fertilizer?data.widgets.parameters.fertilizer:false, data.widgets.parameters.pot, data.widgets.parameters.soil)
+					Widgets.parameters.update(data.widgets.parameters.place,data.widgets.parameters.filter,data.widgets.parameters.exhaust,data.widgets.parameters.fans,data.widgets.parameters.temperature, data.widgets.parameters.humidity, data.widgets.light?data.widgets.parameters.light:false, data.widgets.water?data.widgets.parameters.water:false, data.widgets.fertilizer?data.widgets.parameters.fertilizer:false, data.widgets.parameters.pot, data.widgets.parameters.soil)
 				}
 				else {
 					Widgets.parameters.empty(true)
