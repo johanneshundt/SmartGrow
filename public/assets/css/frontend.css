@@ -604,7 +604,9 @@ modal {
 
 modal .content.costs table {
   width: 100%;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  font-family: monospace;
+  font-size: 16px; }
   modal .content.costs table th, modal .content.costs table td {
     border: 1px solid rgba(255, 255, 255, 0.5); }
     modal .content.costs table th .item, modal .content.costs table td .item {
