@@ -377,6 +377,7 @@ exports.calculateCosts = async function(settings,stadium,newSoil=false,newSeeds=
 			light:0,				// (itemPrice/usableTime)*totalOnTime 				-> e.g. (15.90€/17.520h)*(12h*49)
 			pot:0,					// (itemPrice/usableTime)*totalOnTime*itemAmount	-> e.g. (2.95€/17.520h)*(24h*49)*9
 			waterUtilities:0,		// (itemPrice/usableTime)*totalOnTime*itemAmount	-> e.g. (1.079€/17.520h)*(0.1666h*49)*27
+			place:0,				// (itemPrice/usableTime)*totalOnTime				-> e.g. (124.9€/35.040h)*(24h*49)
 			sum: 0
 		},
 		sum: 0
@@ -395,6 +396,11 @@ exports.calculateCosts = async function(settings,stadium,newSoil=false,newSeeds=
 			}
 			waterTime = (60/(flowAmount/stadium.water.amount)*60) / 3600*(24/stadium.water.interval)
 		}
+	}
+	//PLACE
+	if(stadium.place){
+		costs.wearing.place += (stadium.place.accounting.cost/stadium.place.accounting.usageTime)*(24*days)
+		costs.wearing.sum += costs.wearing.place;
 	}
 	//FAN(S)
 	if(stadium.fan){

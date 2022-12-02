@@ -615,7 +615,7 @@ modal .content.costs table {
     vertical-align: bottom; }
   modal .content.costs table th {
     background-color: rgba(255, 255, 255, 0.25); }
-  modal .content.costs table tr:last-child th {
+  modal .content.costs table tr:first-child th, modal .content.costs table tr:last-child th {
     padding: 10px 0; }
 
 alert {

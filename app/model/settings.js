@@ -21,6 +21,10 @@ module.exports.getSettings = async function(name){
 				model:'Stadium',
 				populate: [
 					{
+						path:'place',
+						model:'Place'
+					},
+					{
 						path:'exhaust',
 						model:'Exhaust'
 					},

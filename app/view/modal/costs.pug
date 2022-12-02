@@ -40,7 +40,7 @@ include ../includes/mixins
                             .item
                                 span(i18n=name)
                                 span=euro(value)
-                td
+                th=euro(phase.sum)
             -
                 overallSum += (phase.electricity.sum + phase.consumables.sum + phase.wearing.sum)
                 electricitySum += phase.electricity.sum;

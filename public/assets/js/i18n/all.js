@@ -26,6 +26,7 @@ export const de = {
 			seeds:'Samen',
 			filter:'Filter',
 			pot:'Topf',
+			place:'Zelt',
 			waterUtilities:'Bewässerung',
 		},
 		'settings/schedule': {

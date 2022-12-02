@@ -24,6 +24,17 @@
         select.select2(name="theme")
             option(value="dark" i18n='input.theme.dark')
             option(value="light" i18n='input.theme.light')
+    h2 Preise
+    .formRow
+        label Strom
+        .inputGroup
+            input(name='electricityPrice' type='number' value=0.325 step=0.005 min=0 max=1)
+            span €/kWh
+    .formRow
+        label Wasser
+        .inputGroup
+            input(name='waterPrice' type='number' value=0.002 step=0.001 min=0 max=1)
+            span €/L
 .footer
     button.cut(type="button" data-modal='settings/schedule' data-reopen-url="settings")
         span(i18n='button.schedule.label')
