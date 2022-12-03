@@ -29,6 +29,17 @@ export const de = {
 			place:'Zelt',
 			waterUtilities:'Bewässerung',
 		},
+		'settings/inventory': {
+			title: 'Inventar',
+			button: {
+				abort: {
+					label:'Abbrechen'
+				},
+				save: {
+					label:'Speichern'
+				},
+			}
+		},
 		'settings/schedule': {
 			title: 'Anbauplan',
 			button: {
@@ -109,9 +120,14 @@ export const de = {
 		settings: {
 			title: 'Einstellungen',
 			user:'Benutzer',
+			electricity:'Strom',
+			water:'Wasser',
+			pricing: 'Preise',
 			input: {
 				language: {
-					label:'Sprache'
+					label:'Sprache',
+					de:'Deutsch',
+					en:'English'
 				},
 				theme: {
 					label:'Theme',
@@ -138,6 +154,9 @@ export const de = {
 				},
 				widgets: {
 					label:'Widgets'
+				},
+				inventory: {
+					label:'Inventar'
 				},
 				abort: {
 					label:'Abbrechen'

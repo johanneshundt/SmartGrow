@@ -2,6 +2,20 @@ const model = require('../../model')
 exports.arduino = require('./arduino')
 
 
+
+exports.settings = async function(req,res){
+	let update = {
+		electricityPrice:req.body.electricityPrice,
+		waterPrice:req.body.waterPrice,
+		language:req.body.language,
+		theme:req.body.theme,
+		background:req.body.background,
+	}
+	await model.settings.updateOne({_id:req.params.settings},update).exec();
+	res.send(true)
+}
+
+
 exports.layout = async function(req,res){
 	await model.layout.updateOne({_id:req.params.layout},{plants:req.body.plants}).exec();
 	VALUES.layoutChanged = true; //TODO: set this in session

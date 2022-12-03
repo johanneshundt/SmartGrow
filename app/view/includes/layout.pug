@@ -7,13 +7,14 @@ head
     link(rel='stylesheet' href='assets/plugins/select2/select2.min.css')
     link(rel='stylesheet' href='assets/css/fontAwesome.css')
     link(rel='stylesheet' href='assets/css/frontend.css')
-.container(lang='de')
-    block content
-    modal.hidden
-    alert.hidden
-script(src='assets/plugins/jquery/jquery.min.js')
-script(src='assets/plugins/jquery-ui/jquery-ui.min.js')
-script(src='assets/plugins/apexcharts/apexcharts.min.js')
-script(src='assets/plugins/select2/select2.min.js')
-script(src='assets/plugins/socket.io/socket.io.min.js')
-script(src='assets/js/frontend.js' type='module')
+body(style="background-image: url('/assets/media/background/"+settings.background+".jpg')")
+    .container(lang=settings.language)
+        block content
+        modal.hidden
+        alert.hidden
+    script(src='assets/plugins/jquery/jquery.min.js')
+    script(src='assets/plugins/jquery-ui/jquery-ui.min.js')
+    script(src='assets/plugins/apexcharts/apexcharts.min.js')
+    script(src='assets/plugins/select2/select2.min.js')
+    script(src='assets/plugins/socket.io/socket.io.min.js')
+    script(src='assets/js/frontend.js' type='module')

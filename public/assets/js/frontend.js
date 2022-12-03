@@ -22,6 +22,9 @@ class SmartGrow {
 					await Tools.modal.close()
 				}
 			})
+			.on('submit','.reload',async function (e){
+				window.location.reload();
+			})
 			.on('click','[data-delete]',async function (e){
 				e.preventDefault();
 				let url = $(this).data('delete');

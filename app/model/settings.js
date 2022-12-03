@@ -7,6 +7,9 @@ let SettingsSchema = new Schema({
 	layout:{type: Schema.Types.ObjectId, ref: 'Layout'},
 	electricityPrice: Number,
 	waterPrice: Number,
+	language:String,
+	theme:String,
+	background:String,
 },{timestamps:true});
 
 const Setting = module.exports = mongoose.model('Setting', SettingsSchema, 'settings');

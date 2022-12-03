@@ -1,53 +1,52 @@
-.head
-    .title(i18n='title')
-    .close
-        i.fa-duotone.fa-times
-.content
-    h2(i18n='user')
-    .formRow
-        label(i18n='input.language.label')
-        select.select2(name="language")
-            option(value="de") Deutsch
-            option(value="en") English
-    .formRow
-        label(i18n='input.background.label')
-        select.select2(name="background")
-            option(value="dark" i18n='input.background.dark')
-            option(value="light" i18n='input.background.light')
-            option(value="green" i18n='input.background.green')
-            option(value="blue" i18n='input.background.blue')
-            option(value="red" i18n='input.background.red')
-            option(value="orange" i18n='input.background.orange')
-            option(value="purple" i18n='input.background.purple')
-    .formRow
-        label(i18n='input.theme.label')
-        select.select2(name="theme")
-            option(value="dark" i18n='input.theme.dark')
-            option(value="light" i18n='input.theme.light')
-    h2 Preise
-    .formRow
-        label Strom
-        .inputGroup
-            input(name='electricityPrice' type='number' value=0.325 step=0.005 min=0 max=1)
-            span €/kWh
-    .formRow
-        label Wasser
-        .inputGroup
-            input(name='waterPrice' type='number' value=0.002 step=0.001 min=0 max=1)
-            span €/L
-.footer
-    button.cut(type="button" data-modal='settings/schedule' data-reopen-url="settings")
-        span(i18n='button.schedule.label')
-        i.fa-duotone.fa-clipboard-list-check
-    button.cut(type="button" data-modal='settings/layout' data-reopen-url="settings")
-        span(i18n='button.layout.label')
-        i.fa-duotone.fa-boxes-stacked
-    button.cut(type="button" data-modal='settings/widgets' data-reopen-url="settings")
-        span(i18n='button.widgets.label')
-        i.fa-duotone.fa-puzzle
-    button.save(type="submit")
-        span(i18n='button.save.label')
-        i.fa-duotone.fa-floppy-disk
-    button.close(type="button")
-        span(i18n='button.abort.label')
-        i.fa-duotone.fa-times
+form.reload(action='set/settings/'+settings._id method='post')
+    .head
+        .title(i18n='title')
+        .close
+            i.fa-duotone.fa-times
+    .content
+        h2(i18n='user')
+        .formRow
+            label(i18n='input.language.label')
+            select.select2(name="language")
+                each value in ['de','en']
+                    option(value=value i18n='input.language.'+value selected=settings.language===value)
+        .formRow
+            label(i18n='input.background.label')
+            select.select2(name="background")
+                each value in ['dark','light','green','blue','red','orange','purple']
+                    option(value=value i18n='input.background.'+value selected=settings.background===value)
+        .formRow
+            label(i18n='input.theme.label')
+            select.select2(name="theme")
+                each value in ['dark','light']
+                    option(value=value i18n='input.theme.' + value selected=settings.theme === value)
+        h2(i18n='pricing')
+        .formRow
+            label(i18n='electricity') Strom
+            .inputGroup
+                input(name='electricityPrice' type='number' value=settings.electricityPrice step=0.005 min=0 max=1)
+                span €/kWh
+        .formRow
+            label(i18n='water')
+            .inputGroup
+                input(name='waterPrice' type='number' value=settings.waterPrice step=0.001 min=0 max=1)
+                span €/L
+    .footer
+        button.cut(type="button" data-modal='settings/schedule' data-reopen-url="settings")
+            span(i18n='button.schedule.label')
+            i.fa-duotone.fa-clipboard-list-check
+        button.cut(type="button" data-modal='settings/layout' data-reopen-url="settings")
+            span(i18n='button.layout.label')
+            i.fa-duotone.fa-boxes-stacked
+        button.cut(type="button" data-modal='settings/widgets' data-reopen-url="settings")
+            span(i18n='button.widgets.label')
+            i.fa-duotone.fa-puzzle
+        button.cut(type="button" data-modal='settings/inventory' data-reopen-url="settings")
+            span(i18n='button.inventory.label')
+            i.fa-duotone.fa-shelves
+        button.save(type="submit")
+            span(i18n='button.save.label')
+            i.fa-duotone.fa-floppy-disk
+        button.close(type="button")
+            span(i18n='button.abort.label')
+            i.fa-duotone.fa-times

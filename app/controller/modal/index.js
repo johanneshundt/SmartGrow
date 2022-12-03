@@ -2,10 +2,16 @@ const model = require('../../model')
 const tools = require('../tools')
 
 exports.settings = async function(req,res){
-	res.renderHtml('modal/settings', {})
+	let options = {
+		settings: await model.settings.findOne({name:'Standard'}).exec()
+	}
+	res.renderHtml('modal/settings', options)
 }
 exports.schedule = async function(req,res){
 	res.renderHtml('modal/schedule', {})
+}
+exports.inventory = async function(req,res){
+	res.renderHtml('modal/inventory', {})
 }
 exports.costs = async function(req,res){
 	let options = {
