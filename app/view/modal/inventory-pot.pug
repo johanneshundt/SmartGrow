@@ -1,0 +1,45 @@
+include ../includes/mixins
+
+.head
+    .title topf
+    .close
+        i.fa-duotone.fa-times
+.content
+    table
+        thead
+            tr
+                th Form
+                th Größe
+                th Volumen
+                th EAN
+                th Kosten
+                th Nutzungsdauer [h]
+                th.search(colspan=2)
+                    i.fa-duotone.fa-search
+                    input(type='text')
+        tbody
+            each item in pot
+                tr.searchable
+                    td=item.shape
+                    if item.shape === 'Rund'
+                        td=item.size.diameter.amount+' '+item.size.diameter.unit+' x '+item.size.height.amount+' '+item.size.height.unit
+                    else
+                        td=item.size.width.amount+' '+item.size.width.unit+' x '+item.size.width.amount+' '+item.size.width.unit+' x '+item.size.height.amount+' '+item.size.height.unit
+                    td=item.volume.amount+' '+item.volume.unit
+                    td=item.ean
+                    td!=euro(item.accounting.cost)
+                    td=item.accounting.usageTime
+                    td
+                        a.button(href=item.url target='_blank')
+                            i.fa-duotone.fa-external-link
+                    td
+                        button
+                            i.fa-duotone.fa-pencil
+
+.footer
+    button(type="button")
+        span(i18n='button.new.label')
+        i.fa-duotone.fa-plus
+    button.close(type="button")
+        span(i18n='button.back.label')
+        i.fa-duotone.fa-arrow-left

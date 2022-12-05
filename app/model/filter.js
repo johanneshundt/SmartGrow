@@ -9,6 +9,8 @@ let FilterSchema = new Schema({
 		cost:Number,
 		usageTime:Number,
 	},
+	ean:String,
+	url:String,
 },{timestamps:true});
 
 const Filter = module.exports = mongoose.model('Filter', FilterSchema, 'filter');

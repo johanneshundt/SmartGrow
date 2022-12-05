@@ -1,0 +1,42 @@
+include ../includes/mixins
+
+.head
+    .title filter
+    .close
+        i.fa-duotone.fa-times
+.content
+    table
+        thead
+            tr
+                th Name
+                th Hersteller
+                th Optimaler Luftzug
+                th EAN
+                th Kosten
+                th Nutzungsdauer [h]
+                th.search(colspan=2)
+                    i.fa-duotone.fa-search
+                    input(type='text')
+        tbody
+            each item in filter
+                tr.searchable
+                    td=item.name
+                    td=item.supplier
+                    td=item.volume+' m³/h'
+                    td=item.ean
+                    td!=euro(item.accounting.cost)
+                    td=item.accounting.usageTime
+                    td
+                        a.button(href=item.url target='_blank')
+                            i.fa-duotone.fa-external-link
+                    td
+                        button
+                            i.fa-duotone.fa-pencil
+
+.footer
+    button(type="button")
+        span(i18n='button.new.label')
+        i.fa-duotone.fa-plus
+    button.close(type="button")
+        span(i18n='button.back.label')
+        i.fa-duotone.fa-arrow-left

@@ -37,6 +37,29 @@ class SmartGrow {
 					await Tools.modal.close();
 				}
 			})
+			.on('keyup','thead th.search input',this.searchTable)
+
+	}
+	searchTable(event){
+		let query = $(event.currentTarget).val().toLowerCase();
+		let table = $(event.currentTarget).closest('table').first()
+		table.find('tr.searchable').each(function(){
+			let row = $(this);
+			let hidden = true;
+			row.find('td,th').each(function(){
+				$(this).unmark()
+				if($(this).text().toLowerCase().indexOf(query) !== -1){
+					$(this).mark(query)
+					hidden = false;
+				}
+			})
+			if(hidden){
+				row.addClass('hidden')
+			}
+			else {
+				row.removeClass('hidden')
+			}
+		})
 	}
 	initSocket(){
 		let socket = io();

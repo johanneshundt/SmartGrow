@@ -42,14 +42,14 @@ class Widget {
 			widget.i18Element = element;
 			let parts = element.split('.');
 			for(let part of parts){
-				widget.text = widget.text[part]
+				widget.text = widget.text?.[part]
 			}
 		}
 		widget.element.find('[i18n]').each(function(){
 			let parts = $(this).attr('i18n').split('.')
 			let text = widget.text;
 			for(let part of parts){
-				text = text[part]
+				text = text?.[part]
 			}
 			$(this).html(text)
 		})
@@ -57,7 +57,7 @@ class Widget {
 			let parts = $(this).attr('i18nDate').split('.')
 			let format = widget.text;
 			for(let part of parts){
-				format = format[part]
+				format = format?.[part]
 			}
 			let html = $(this).html()
 			$(this).html(new Date(html).toLocaleDateString(format));
@@ -66,7 +66,7 @@ class Widget {
 			let parts = $(this).attr('i18nTime').split('.')
 			let format = widget.text;
 			for(let part of parts){
-				format = format[part]
+				format = format?.[part]
 			}
 			let html = $(this).html()
 			$(this).html(new Date(html).toLocaleTimeString(format));

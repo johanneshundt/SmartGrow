@@ -15,7 +15,8 @@ let FertilizerSchema = new Schema({
 		unit:String,
 		costs:Number,
 	},
-	url: String
+	url: String,
+	ean:String,
 },{timestamps:true});
 
 const Fertilizer = module.exports = mongoose.model('Fertilizer', FertilizerSchema, 'fertilizer');

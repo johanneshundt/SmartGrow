@@ -1,0 +1,42 @@
+include ../includes/mixins
+
+.head
+    .title bewässerung
+    .close
+        i.fa-duotone.fa-times
+.content
+    table
+        thead
+            tr
+                th Name
+                th EAN
+                th L/h
+                th Kosten
+                th Nutzungsdauer [h]
+                th.search(colspan=2)
+                    i.fa-duotone.fa-search
+                    input(type='text')
+        tbody
+            each item in water
+                tr
+                    th(colspan=7)=item.supplier+' '+item.model
+                each utility in item.utilities
+                    tr.searchable
+                        td=utility.name
+                        td=utility.ean
+                        td=utility.flow
+                        td!=euro(utility.accounting.cost)
+                        td=utility.accounting.usageTime
+                        td
+                            a.button(href=utility.url target='_blank')
+                                i.fa-duotone.fa-external-link
+                        td
+                            button
+                                i.fa-duotone.fa-pencil
+.footer
+    button(type="button")
+        span(i18n='button.new.label')
+        i.fa-duotone.fa-plus
+    button.close(type="button")
+        span(i18n='button.back.label')
+        i.fa-duotone.fa-arrow-left

@@ -199,3 +199,40 @@ form {
 .noBorder {
 	border: none !important;
 }
+
+
+
+thead {
+	th.search {
+		padding: 0 !important;
+		width: 150px;
+		i {
+			position: absolute;
+			padding: 15px;
+		}
+		input {
+			width: 100%;
+			padding: 10px 10px 10px 40px;
+			border: none;
+		}
+	}
+}
+
+mark {
+	background: rgba(255,255,255,0.75);
+}
+
+a.button {
+	display: block;
+	cursor: pointer;
+	width: 100%;
+	height: 40px;
+	min-width: 40px;
+	background: rgba(255, 255, 255, 0.25);
+	border: none;
+	color: #fff;
+	font-size: 25px;
+	i {
+		padding: 7px;
+	}
+}

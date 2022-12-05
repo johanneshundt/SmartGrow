@@ -1,0 +1,46 @@
+include ../includes/mixins
+
+.head
+    .title erde
+    .close
+        i.fa-duotone.fa-times
+.content
+    table
+        thead
+            tr
+                th Name
+                th Hersteller
+                th EAN
+                th Vorgedüngt
+                th Packungsgröße
+                th Kosten
+                th.search(colspan=2)
+                    i.fa-duotone.fa-search
+                    input(type='text')
+        tbody
+            each item in soil
+                tr.searchable
+                    td=item.name
+                    td=item.supplier
+                    td=item.ean
+                    td
+                        if item.fertilized
+                            i.fa-duotone.fa-check
+                        else
+                            i.fa-duotone.fa-times
+                    td=item.package.amount
+                    td!=euro(item.package.costs)
+                    td
+                        a.button(href=item.url target='_blank')
+                            i.fa-duotone.fa-external-link
+                    td
+                        button
+                            i.fa-duotone.fa-pencil
+
+.footer
+    button(type="button")
+        span(i18n='button.new.label')
+        i.fa-duotone.fa-plus
+    button.close(type="button")
+        span(i18n='button.back.label')
+        i.fa-duotone.fa-arrow-left

@@ -11,6 +11,7 @@ let SoilSchema = new Schema({
 	},
 	fertilized: Boolean,
 	url: String,
+	ean:String
 },{timestamps:true});
 
 const Soil = module.exports = mongoose.model('Soil', SoilSchema, 'soil');

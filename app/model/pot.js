@@ -25,7 +25,9 @@ let PotSchema = new Schema({
 		cost:Number,
 		usageTime:Number,
 	},
-	waterUtilities:[{ type: Schema.Types.ObjectId, ref: 'WaterUtilities' }]
+	waterUtilities:[{ type: Schema.Types.ObjectId, ref: 'WaterUtilities' }],
+	ean:String,
+	url:String,
 },{timestamps:true});
 
 const Pot = module.exports = mongoose.model('Pot', PotSchema, 'pot');

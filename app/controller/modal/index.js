@@ -1,32 +1,81 @@
 const model = require('../../model')
 const tools = require('../tools')
 
-exports.settings = async function(req,res){
-	let options = {
-		settings: await model.settings.findOne({name:'Standard'}).exec()
+exports.settings = {
+	index: async function(req,res){
+		let options = {
+			settings: await model.settings.findOne({name:'Standard'}).exec()
+		}
+		res.renderHtml('modal/settings', options)
+	},
+	schedule: async function(req,res){
+		res.renderHtml('modal/schedule', {})
+	},
+	layout: async function(req,res){
+		res.renderHtml('modal/layout', {})
+	},
+	widgets: async function(req,res){
+		res.renderHtml('modal/widgets', {})
+	},
+	inventory: {
+		index: async function(req,res){
+			res.renderHtml('modal/inventory', {})
+		},
+		place: async function(req,res){
+			res.renderHtml('modal/inventory-place', {})
+		},
+		light: async function(req,res){
+			res.renderHtml('modal/inventory-light', {})
+		},
+		fan: async function(req,res){
+			res.renderHtml('modal/inventory-fan', {})
+		},
+		exhaust: async function(req,res){
+			res.renderHtml('modal/inventory-exhaust', {})
+		},
+		filter: async function(req,res){
+			let options = {
+				filter: await model.filter.find().exec()
+			}
+			res.renderHtml('modal/inventory-filter', options)
+		},
+		pot: async function(req,res){
+			let options = {
+				pot: await model.pot.find().exec()
+			}
+			res.renderHtml('modal/inventory-pot', options)
+		},
+		soil: async function(req,res){
+			let options = {
+				soil: await model.soil.find().exec()
+			}
+			res.renderHtml('modal/inventory-soil', options)
+		},
+		fertilizer: async function(req,res){
+			let options = {
+				fertilizer: await model.fertilizer.find().exec()
+			}
+			res.renderHtml('modal/inventory-fertilizer', options)
+		},
+		water: async function(req,res){
+			let options = {
+				water: await model.water.find().populate({path:'utilities',model:'WaterUtilities'}).exec()
+			}
+			res.renderHtml('modal/inventory-water', options)
+		}
 	}
-	res.renderHtml('modal/settings', options)
 }
-exports.schedule = async function(req,res){
-	res.renderHtml('modal/schedule', {})
-}
-exports.inventory = async function(req,res){
-	res.renderHtml('modal/inventory', {})
-}
+
+
+
 exports.costs = async function(req,res){
 	let options = {
 		costs: await tools.calculateOverallCosts('Standard')
 	}
 	res.renderHtml('modal/costs', options)
 }
-exports.layout = async function(req,res){
-	res.renderHtml('modal/layout', {})
-}
 exports.stadium = async function(req,res){
 	res.renderHtml('modal/stadium', {})
-}
-exports.widgets = async function(req,res){
-	res.renderHtml('modal/widgets', {})
 }
 
 

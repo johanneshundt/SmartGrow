@@ -184,6 +184,33 @@ form {
 .noBorder {
   border: none !important; }
 
+thead th.search {
+  padding: 0 !important;
+  width: 150px; }
+  thead th.search i {
+    position: absolute;
+    padding: 15px; }
+  thead th.search input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none; }
+
+mark {
+  background: rgba(255, 255, 255, 0.75); }
+
+a.button {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  min-width: 40px;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  color: #fff;
+  font-size: 25px; }
+  a.button i {
+    padding: 7px; }
+
 .container .widgets {
   display: grid;
   grid-template-columns: 1fr 300px 300px 1fr 1fr;
@@ -607,16 +634,16 @@ modal {
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
       float: unset; }
 
-modal .content.layout table {
+modal .content table {
   width: 100%;
   border-collapse: collapse; }
-  modal .content.layout table th, modal .content.layout table td {
+  modal .content table th, modal .content table td {
     white-space: nowrap;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.5); }
-  modal .content.layout table th {
+  modal .content table th {
     background-color: rgba(255, 255, 255, 0.25); }
-  modal .content.layout table td button {
+  modal .content table td button {
     cursor: pointer;
     width: 100%;
     height: 40px;
@@ -625,28 +652,7 @@ modal .content.layout table {
     border: none;
     color: #fff;
     font-size: 25px; }
-  modal .content.layout table thead th {
-    padding: 10px 0; }
-
-modal .content.schedule table {
-  width: 100%;
-  border-collapse: collapse; }
-  modal .content.schedule table th, modal .content.schedule table td {
-    white-space: nowrap;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.5); }
-  modal .content.schedule table th {
-    background-color: rgba(255, 255, 255, 0.25); }
-  modal .content.schedule table td button {
-    cursor: pointer;
-    width: 100%;
-    height: 40px;
-    min-width: 40px;
-    background: rgba(255, 255, 255, 0.25);
-    border: none;
-    color: #fff;
-    font-size: 25px; }
-  modal .content.schedule table thead th {
+  modal .content table thead th {
     padding: 10px 0; }
 
 modal .content.costs table {
